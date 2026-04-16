@@ -1,0 +1,18 @@
+schema_version: "1.0"
+
+name: "@nifemi0/wagmi-v1-to-v2"
+version: "0.1.0"
+description: "Deterministic wagmi v1 to v2 migration workflow"
+author: "MigrateX Team <opensource@example.com>"
+license: "MIT"
+workflow: "workflow.yaml"
+category: "migration"
+
+targets:
+  languages: ["typescript", "javascript"]
+
+keywords: ["upgrade", "breaking-change", "wagmi", "v1-to-v2", "react"]
+
+registry:
+  access: "public"
+  visibility: "public"

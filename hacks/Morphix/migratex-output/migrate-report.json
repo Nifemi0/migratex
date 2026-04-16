@@ -1,0 +1,175 @@
+{
+  "ok": false,
+  "reason": "wagmi not found",
+  "scan": {
+    "packageManager": "npm",
+    "wagmiVersion": null,
+    "filesUsingWagmi": [
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/src/codemods/provider.ts",
+        "importNames": [],
+        "confidence": 0.6,
+        "providerUsage": [
+          "WagmiProvider",
+          "WagmiConfig"
+        ],
+        "hooksUsed": [
+          "useInMemoryFileSystem"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/src/codemods/renamedExports.ts",
+        "importNames": [],
+        "confidence": 0.6,
+        "providerUsage": [
+          "WagmiProvider",
+          "WagmiConfig"
+        ],
+        "hooksUsed": [
+          "useWallet",
+          "useAccount",
+          "useInMemoryFileSystem",
+          "useX"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/integration/report-persistence.test.ts",
+        "importNames": [
+          "useAccount"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useAccount"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/hooks/alias-after.tsx",
+        "importNames": [
+          "useConnect"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useConnect"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/hooks/await-after.tsx",
+        "importNames": [
+          "useConnect"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useConnect"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/hooks/before.tsx",
+        "importNames": [
+          "useConnect"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useConnect"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/imports/after-alias.tsx",
+        "importNames": [
+          "useAccount"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useAccount"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/imports/after.js",
+        "importNames": [],
+        "confidence": 0.6,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useAccount"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/imports/after.tsx",
+        "importNames": [
+          "useAccount"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useAccount",
+          "useW"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/imports/before-skip.tsx",
+        "importNames": [
+          "useWallet",
+          "unknownHook"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useWallet"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/imports/before.js",
+        "importNames": [],
+        "confidence": 0.6,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useWallet"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/imports/before.tsx",
+        "importNames": [
+          "useWallet"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useWallet",
+          "useW"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/renamed-exports/after-reexport.ts",
+        "importNames": [],
+        "confidence": 0.6,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useAccount"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/renamed-exports/before-reexport.ts",
+        "importNames": [],
+        "confidence": 0.6,
+        "providerUsage": [],
+        "hooksUsed": [
+          "useWallet"
+        ]
+      },
+      {
+        "path": "C:/Users/USER/.gemini/antigravity/scratch/hacks/Morphix/tests/fixtures/provider/after-provider.tsx",
+        "importNames": [
+          "WagmiConfig"
+        ],
+        "confidence": 0.95,
+        "providerUsage": [
+          "WagmiConfig"
+        ],
+        "hooksUsed": []
+      }
+    ]
+  }
+}

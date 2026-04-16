@@ -1,0 +1,6 @@
+Migration report
+Target: wagmi v2
+Files scanned: 0
+Files changed (imports): 0
+Files changed (exports): 0
+Unresolved items: 0

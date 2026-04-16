@@ -1,0 +1,12 @@
+version: "1"
+
+nodes:
+  - id: wagmi-v2-dry-run
+    name: Run migratex wagmi-v2 dry run
+    type: automatic
+    steps:
+      - name: Build migratex CLI
+        run: npm run build
+
+      - name: Run deterministic migration dry run
+        run: node dist/src/cli/index.js wagmi-v2
