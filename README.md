@@ -8,7 +8,7 @@ Production-ready deterministic migration package for wagmi v1 to v2, built for C
 npx codemod @nifemi0/wagmi-v1-to-v2
 ```
 
-Current published version: `0.1.3`
+Current published version: `0.1.4`
 
 Repository: https://github.com/Nifemi0/migratex
 
@@ -27,17 +27,33 @@ Repository: https://github.com/Nifemi0/migratex
 - Deterministic-first, no broad guesses
 - Unknown/low-confidence patterns are skipped and reported
 - Dry-run default behavior
-- Fixture-tested codemods and integration coverage
+- No incorrect transformations observed in reviewed apply-mode diffs
 
-## Real repo validation
+## Real Repository Validation
 
-Validated with automated dry-runs on real open-source wagmi v1 repositories.
+Batch apply-mode validation on real repositories:
 
-| Repository | wagmi version | Files using wagmi | Files scanned | Files changed | Unresolved |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [`fiveoutofnine/tx.cool`](https://github.com/fiveoutofnine/tx.cool) | `^1.3.9` | 1 | 48 | 0 | 0 |
-| [`Bubble-Protocol/seedling`](https://github.com/Bubble-Protocol/seedling) | `^1.4.12` | 3 | 63 | 0 | 0 |
-| [`PinataCloud/pinata-nft-minting-app-template`](https://github.com/PinataCloud/pinata-nft-minting-app-template) | `^1.3.11` | 2 | 8 | 0 | 0 |
+- Repositories tested: 7
+- Source files scanned (ts/tsx/js/jsx): 767
+- Files using wagmi: 80
+- Code files modified by codemods: 3
+- Aggregate automation coverage (code files changed / files using wagmi): 3.8%
+- False positives observed in reviewed diffs: 0
+
+### Case study: `bnb-chain/greenfield-data-marketplace-frontend`
+
+Repository: https://github.com/bnb-chain/greenfield-data-marketplace-frontend  
+Files scanned: 134  
+Files using wagmi: 31  
+Files modified: 1 (`src/hooks/useWallet.ts`)  
+Automation coverage: 3.2%  
+False positives: 0  
+Skipped/unsupported cases: 1
+
+Validation:
+- Typecheck: not available in batch proof run
+- Build: not available in batch proof run
+- Tests: not available in batch proof run
 
 ### Apply-mode validation (real writes, non-dry-run)
 
@@ -50,36 +66,25 @@ Validated with cloned repositories and `wagmi-v2 --apply`:
 | [`rabbitholegg/gateway`](https://github.com/rabbitholegg/gateway) | `1.4.2` | 0 | — |
 | [`web3sheet/web3sheet`](https://github.com/web3sheet/web3sheet) | `1.x` | 0 | — |
 
-Captured output summary:
+## Example Outputs
 
-```json
-[
-  {
-    "repo": "fiveoutofnine/tx.cool",
-    "wagmiVersion": "^1.3.9",
-    "filesUsingWagmi": 1,
-    "filesScanned": 48,
-    "filesChanged": 0,
-    "unresolved": 0
-  },
-  {
-    "repo": "Bubble-Protocol/seedling",
-    "wagmiVersion": "^1.4.12",
-    "filesUsingWagmi": 3,
-    "filesScanned": 63,
-    "filesChanged": 0,
-    "unresolved": 0
-  },
-  {
-    "repo": "PinataCloud/pinata-nft-minting-app-template",
-    "wagmiVersion": "^1.3.11",
-    "filesUsingWagmi": 2,
-    "filesScanned": 8,
-    "filesChanged": 0,
-    "unresolved": 0
-  }
-]
-```
+Generated in `migratex-output/`:
+- `migrate-report.json`
+- `migrate-summary.txt`
+- `patch.diff` (when patch generation is run)
+
+## Testing
+
+- Fixture tests for deterministic codemods (`tests/codemods/*`)
+- Integration test for report persistence (`tests/integration/report-persistence.test.ts`)
+- Optional real-repo integration test (`tests/integration/real-repo.test.ts`)
+- CI workflow validation (`npm run codemod:workflow:validate`)
+
+## Limitations / skipped patterns
+
+- Current deterministic rules intentionally target high-confidence wagmi v1 patterns only.
+- Ambiguous wrappers and non-standard abstractions are skipped and reported instead of edited.
+- This favors zero-risk edits over broad automation; AI-assisted edge-case handling remains opt-in.
 
 ## Local development
 
@@ -166,3 +171,4 @@ npx codemod publish
 
 - Package is published under user scope: `@nifemi0/wagmi-v1-to-v2`.
 - If Codemod CLI asks for shell-step approvals during package execution, approve the workflow steps to proceed.
+
