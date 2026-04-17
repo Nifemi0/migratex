@@ -8,7 +8,7 @@ Production-ready deterministic migration package for wagmi v1 to v2, built for C
 npx codemod @nifemi0/wagmi-v1-to-v2
 ```
 
-Current published version: `0.1.2`
+Current published version: `0.1.3`
 
 Repository: https://github.com/Nifemi0/migratex
 
