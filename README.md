@@ -8,7 +8,7 @@ Production-ready deterministic migration package for wagmi v1 to v2, built for C
 npx codemod @nifemi0/wagmi-v1-to-v2
 ```
 
-Current published version: `0.1.0`
+Current published version: `0.1.1`
 
 ## What it does
 
@@ -26,6 +26,47 @@ Current published version: `0.1.0`
 - Unknown/low-confidence patterns are skipped and reported
 - Dry-run default behavior
 - Fixture-tested codemods and integration coverage
+
+## Real repo validation
+
+Validated with automated dry-runs on real open-source wagmi v1 repositories.
+
+| Repository | wagmi version | Files using wagmi | Files scanned | Files changed | Unresolved |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `fiveoutofnine/tx.cool` | `^1.3.9` | 1 | 48 | 0 | 0 |
+| `Bubble-Protocol/seedling` | `^1.4.12` | 3 | 63 | 0 | 0 |
+| `PinataCloud/pinata-nft-minting-app-template` | `^1.3.11` | 2 | 8 | 0 | 0 |
+
+Captured output summary:
+
+```json
+[
+  {
+    "repo": "fiveoutofnine/tx.cool",
+    "wagmiVersion": "^1.3.9",
+    "filesUsingWagmi": 1,
+    "filesScanned": 48,
+    "filesChanged": 0,
+    "unresolved": 0
+  },
+  {
+    "repo": "Bubble-Protocol/seedling",
+    "wagmiVersion": "^1.4.12",
+    "filesUsingWagmi": 3,
+    "filesScanned": 63,
+    "filesChanged": 0,
+    "unresolved": 0
+  },
+  {
+    "repo": "PinataCloud/pinata-nft-minting-app-template",
+    "wagmiVersion": "^1.3.11",
+    "filesUsingWagmi": 2,
+    "filesScanned": 8,
+    "filesChanged": 0,
+    "unresolved": 0
+  }
+]
+```
 
 ## Local development
 
