@@ -10,26 +10,26 @@ export async function transformFileProvider(filePath: string) {
   let changed = false;
   const diagnostics: string[] = [];
 
-  // Replace named import WagmiProvider -> WagmiConfig in imports from 'wagmi'
+  // Replace named import WagmiConfig -> WagmiProvider in imports from 'wagmi'
   sourceFile.getImportDeclarations().forEach((imp) => {
     if (imp.getModuleSpecifierValue() !== 'wagmi') return;
     const named = imp.getNamedImports();
     named.forEach((ni) => {
-      if (ni.getName() === 'WagmiProvider') {
-        ni.replaceWithText('WagmiConfig' + (ni.getAliasNode() ? ` as ${ni.getAliasNode()!.getText()}` : ''));
+      if (ni.getName() === 'WagmiConfig') {
+        ni.replaceWithText('WagmiProvider' + (ni.getAliasNode() ? ` as ${ni.getAliasNode()!.getText()}` : ''));
         changed = true;
       }
     });
   });
 
-  // Replace JSX elements <WagmiProvider ...> -> <WagmiConfig ...>
+  // Replace JSX elements <WagmiConfig ...> -> <WagmiProvider ...>
   const openingTags = sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement);
   openingTags.forEach((el) => {
     try {
       const tagNode = el.getTagNameNode();
       const tagName = tagNode.getText();
-      if (tagName === 'WagmiProvider') {
-        tagNode.replaceWithText('WagmiConfig');
+      if (tagName === 'WagmiConfig') {
+        tagNode.replaceWithText('WagmiProvider');
         changed = true;
       }
     } catch (e) {
@@ -42,8 +42,8 @@ export async function transformFileProvider(filePath: string) {
     try {
       const tagNode = el.getTagNameNode();
       const tagName = tagNode.getText();
-      if (tagName === 'WagmiProvider') {
-        tagNode.replaceWithText('WagmiConfig');
+      if (tagName === 'WagmiConfig') {
+        tagNode.replaceWithText('WagmiProvider');
         changed = true;
       }
     } catch (e) {
@@ -57,8 +57,8 @@ export async function transformFileProvider(filePath: string) {
     try {
       const tagNode = el.getTagNameNode();
       const tagName = tagNode.getText();
-      if (tagName === 'WagmiProvider') {
-        tagNode.replaceWithText('WagmiConfig');
+      if (tagName === 'WagmiConfig') {
+        tagNode.replaceWithText('WagmiProvider');
         changed = true;
       }
     } catch (e) {

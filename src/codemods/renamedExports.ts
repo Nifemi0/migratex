@@ -7,7 +7,12 @@ export type RenameMap = Record<string, string>;
 export const DEFAULT_EXPORT_RENAMING: RenameMap = {
   // High-confidence export renames
   useWallet: "useAccount",
-  WagmiProvider: "WagmiConfig"
+  useNetwork: "useChainId",
+  useSigner: "useWalletClient",
+  useProvider: "usePublicClient",
+  useWaitForTransaction: "useWaitForTransactionReceipt",
+  WagmiConfig: "WagmiProvider",
+  createClient: "createConfig"
 };
 
 export async function transformFileRenamedExports(filePath: string, renameMap: RenameMap) {
@@ -46,15 +51,10 @@ export async function transformFileRenamedExports(filePath: string, renameMap: R
     if (exp.getModuleSpecifierValue() !== "wagmi") return;
     const namedExports = exp.getNamedExports();
     if (namedExports.length === 0) return;
-    const exportNames = namedExports.map((ne) => ne.getName());
-    const allKnown = exportNames.every((n) => renameMap[n] !== undefined);
-    if (!allKnown) {
-      diagnostics.push(`Skipped ${filePath}: export has unknown names: ${exportNames.join(", ")}`);
-      return;
-    }
     namedExports.forEach((ne) => {
       const oldName = ne.getName();
       const newName = renameMap[oldName];
+      if (!newName) return;
       if (oldName !== newName) {
         const alias = ne.getAliasNode() ? ne.getAliasNode()!.getText() : null;
         ne.replaceWithText(newName + (alias ? ` as ${alias}` : ""));

@@ -1,10 +1,11 @@
 /**
  * Deterministic import-name renaming codemod (safe rules):
  * - Only transforms ImportDeclarations with moduleSpecifier === 'wagmi'
- * - Only applies a change if ALL named imports in the declaration exist in the provided mapping
+ * - Renames only known named imports in the provided mapping
+ * - Leaves unknown named imports untouched
  * - Does not touch default imports or namespace imports
  *
- * This design ensures zero partial/ambiguous edits.
+ * This design keeps edits deterministic while improving coverage.
  */
 
 import fs from "fs";
@@ -19,14 +20,17 @@ export type RenameMap = Record<string, string>;
  * Real mappings should be constructed from migration docs and expanded conservatively.
  */
 export const DEFAULT_IMPORT_RENAMING: RenameMap = {
-  // High-confidence renames (conservative)
+  // High-confidence symbol renames
   // Hooks
   "useWallet": "useAccount",
+  "useNetwork": "useChainId",
+  "useSigner": "useWalletClient",
+  "useProvider": "usePublicClient",
+  "useWaitForTransaction": "useWaitForTransactionReceipt",
   // Provider / config
-  "WagmiProvider": "WagmiConfig",
-  // Client helpers (if present)
-  // Note: createClient API shape changed between v1/v2 in some repos; only rename symbol, not internals
-  "createClient": "createClient"
+  "WagmiConfig": "WagmiProvider",
+  // Client helpers
+  "createClient": "createConfig"
 };
 
 export async function transformFileImports(filePath: string, renameMap: RenameMap) {
@@ -51,18 +55,11 @@ export async function transformFileImports(filePath: string, renameMap: RenameMa
     const namedImports = imp.getNamedImports();
     if (namedImports.length === 0) return;
 
-    const importNames = namedImports.map((ni) => ni.getName());
-    // Only proceed if ALL names exist in mapping (deterministic safety)
-    const allKnown = importNames.every((n) => renameMap[n] !== undefined);
-    if (!allKnown) {
-      diagnostics.push(`Skipped ${filePath}: import has unknown names: ${importNames.join(", ")}`);
-      return;
-    }
-
-    // Apply rename for each named import
+    // Apply rename for each known named import
     namedImports.forEach((ni) => {
       const oldName = ni.getName();
       const newName = renameMap[oldName];
+      if (!newName) return;
       if (oldName !== newName) {
         const alias = ni.getAliasNode() ? ni.getAliasNode()!.getText() : null;
         // collect references for the original name before changing the import

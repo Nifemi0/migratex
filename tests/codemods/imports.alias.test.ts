@@ -28,13 +28,13 @@ describe("import renaming codemod - alias and skip cases", () => {
     expect(after.trim()).toBe(expected.trim());
   });
 
-  it("does not change when import contains unknown names (safe-skip)", async () => {
+  it("renames known imports while preserving unknown names", async () => {
     const before = fs.readFileSync(path.join(FIXTURE_DIR, "before-skip.tsx"), "utf8");
     const tmpFile = path.join(TMP_DIR, "before-skip.tsx");
     fs.writeFileSync(tmpFile, before, "utf8");
 
     const res = await transformFileImports(tmpFile, DEFAULT_IMPORT_RENAMING);
-    expect(res.changed).toBe(false);
+    expect(res.changed).toBe(true);
 
     const after = fs.readFileSync(tmpFile, "utf8");
     const expected = fs.readFileSync(path.join(FIXTURE_DIR, "after-skip.tsx"), "utf8");

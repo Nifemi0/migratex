@@ -6,7 +6,7 @@ import { transformFileProvider } from '../../src/codemods/provider';
 const FIXTURE_DIR = path.join(__dirname, '..', 'fixtures', 'provider');
 const TMP_DIR = path.join(__dirname, 'tmp_provider');
 
-describe('provider codemod (WagmiProvider -> WagmiConfig)', () => {
+describe('provider codemod (WagmiConfig -> WagmiProvider)', () => {
   beforeEach(() => {
     if (!fs.existsSync(TMP_DIR)) fs.mkdirSync(TMP_DIR, { recursive: true });
   });

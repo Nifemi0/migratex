@@ -8,7 +8,7 @@ Production-ready deterministic migration package for wagmi v1 to v2, built for C
 npx codemod @nifemi0/wagmi-v1-to-v2
 ```
 
-Current published version: `0.1.4`
+Current published version: `0.1.5`
 
 Repository: https://github.com/Nifemi0/migratex
 
@@ -31,29 +31,29 @@ Repository: https://github.com/Nifemi0/migratex
 
 ## Real Repository Validation
 
-Batch apply-mode validation on real repositories:
+Batch apply-mode validation on real repositories (with v1-only scope gating):
 
 - Repositories tested: 7
-- Source files scanned (ts/tsx/js/jsx): 767
-- Files using wagmi: 80
-- Code files modified by codemods: 3
-- Aggregate automation coverage (code files changed / files using wagmi): 3.8%
+- Repositories in-scope (`wagmi@1.x`): 3
+- Source files scanned in-scope (ts/tsx/js/jsx): 451
+- Files using wagmi in-scope: 28
+- Code files modified by codemods in-scope: 7
+- Aggregate automation coverage in-scope (code files changed / files using wagmi): 25.0%
 - False positives observed in reviewed diffs: 0
 
-### Case study: `bnb-chain/greenfield-data-marketplace-frontend`
+### Case study: `Tytandoteth/MAGBaseBridge`
 
-Repository: https://github.com/bnb-chain/greenfield-data-marketplace-frontend  
-Files scanned: 134  
-Files using wagmi: 31  
-Files modified: 1 (`src/hooks/useWallet.ts`)  
-Automation coverage: 3.2%  
+Repository: https://github.com/Tytandoteth/MAGBaseBridge  
+Files scanned: 38  
+Files using wagmi: 14  
+Files modified: 5 (`src/main.tsx` and 4 test files)  
+Automation coverage: 35.7%  
 False positives: 0  
 Skipped/unsupported cases: 1
 
 Validation:
-- Typecheck: not available in batch proof run
-- Build: not available in batch proof run
-- Tests: not available in batch proof run
+- Typecheck/build on this repo: blocked by pre-existing upstream TS issues outside codemod edits
+- Build check on real repo run (`LIT-Protocol/lit-pkp-auth-demo`): passed
 
 ### Apply-mode validation (real writes, non-dry-run)
 
@@ -61,10 +61,11 @@ Validated with cloned repositories and `wagmi-v2 --apply`:
 
 | Repository | wagmi version | Files changed | Changed files |
 | --- | --- | ---: | --- |
-| [`bnb-chain/greenfield-data-marketplace-frontend`](https://github.com/bnb-chain/greenfield-data-marketplace-frontend) | `^0.12.12` | 1 | `src/hooks/useWallet.ts` |
-| [`LIT-Protocol/lit-pkp-auth-demo`](https://github.com/LIT-Protocol/lit-pkp-auth-demo) | `^0.12.8` | 1 | `src/hooks/useAuthenticate.ts` |
-| [`rabbitholegg/gateway`](https://github.com/rabbitholegg/gateway) | `1.4.2` | 0 | — |
-| [`web3sheet/web3sheet`](https://github.com/web3sheet/web3sheet) | `1.x` | 0 | — |
+| [`Tytandoteth/MAGBaseBridge`](https://github.com/Tytandoteth/MAGBaseBridge) | `^1.4.7` | 5 | `src/main.tsx`, `src/__tests__/App.test.tsx`, `src/__tests__/BridgeInterface.test.tsx`, `src/__tests__/ConnectWallet.test.tsx`, `src/__tests__/WalletButton.test.tsx` |
+| [`rabbitholegg/gateway`](https://github.com/rabbitholegg/gateway) | `1.4.2` | 1 | `contexts/ConnectKitProvider.tsx` |
+| [`gerardcastell/insurechain`](https://github.com/gerardcastell/insurechain) | `^1.4.0` | 1 | `apps/client-web/config/WagmiConfigProvider.tsx` |
+| [`bnb-chain/greenfield-data-marketplace-frontend`](https://github.com/bnb-chain/greenfield-data-marketplace-frontend) | `^0.12.12` | 0 | out-of-scope (v0) |
+| [`LIT-Protocol/lit-pkp-auth-demo`](https://github.com/LIT-Protocol/lit-pkp-auth-demo) | `^0.12.8` | 0 | out-of-scope (v0) |
 
 ## Example Outputs
 

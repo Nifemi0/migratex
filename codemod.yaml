@@ -1,7 +1,7 @@
 schema_version: "1.0"
 
 name: "@nifemi0/wagmi-v1-to-v2"
-version: "0.1.4"
+version: "0.1.5"
 description: "Deterministic wagmi v1 to v2 migration workflow"
 author: "MigrateX Team <opensource@example.com>"
 license: "MIT"

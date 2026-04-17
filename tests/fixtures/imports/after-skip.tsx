@@ -1,8 +1,8 @@
 import React from 'react';
-import { useWallet, unknownHook } from 'wagmi';
+import { useAccount, unknownHook } from 'wagmi';
 
 export function Example() {
-  const a = useWallet();
+  const a = useAccount();
   const b = unknownHook();
   return <div>{String(a) + String(b)}</div>;
 }

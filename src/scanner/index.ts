@@ -5,6 +5,8 @@ import fg from "fast-glob";
 export type ScannerReport = {
   packageManager: "npm" | "pnpm" | "yarn" | "unknown";
   wagmiVersion: string | null;
+  wagmiMajor: number | null;
+  inScope: boolean;
   filesUsingWagmi: Array<{
     path: string;
     importNames: string[];
@@ -21,6 +23,14 @@ function detectPackageManager(cwd: string): ScannerReport["packageManager"] {
   return "unknown";
 }
 
+function parseWagmiMajor(version: string | null): number | null {
+  if (!version) return null;
+  const match = version.match(/\d+/);
+  if (!match) return null;
+  const parsed = Number(match[0]);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 export async function scanRepo(cwd: string): Promise<ScannerReport> {
   const pkgPath = path.join(cwd, "package.json");
   let wagmiVersion: string | null = null;
@@ -33,6 +43,8 @@ export async function scanRepo(cwd: string): Promise<ScannerReport> {
       wagmiVersion = null;
     }
   }
+  const wagmiMajor = parseWagmiMajor(wagmiVersion);
+  const inScope = wagmiMajor === 1;
 
   const patterns = ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"];
   const entries = await fg(patterns, { cwd, absolute: true, ignore: ["node_modules/**", "dist/**"] });
@@ -82,6 +94,8 @@ export async function scanRepo(cwd: string): Promise<ScannerReport> {
   return {
     packageManager: detectPackageManager(cwd),
     wagmiVersion,
+    wagmiMajor,
+    inScope,
     filesUsingWagmi,
   };
 }

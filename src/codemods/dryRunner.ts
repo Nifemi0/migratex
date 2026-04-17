@@ -5,6 +5,7 @@ import fg from 'fast-glob';
 import { transformFileImports, DEFAULT_IMPORT_RENAMING } from './imports.js';
 import { transformFileRenamedExports, DEFAULT_EXPORT_RENAMING } from './renamedExports.js';
 import { transformFileProvider } from './provider.js';
+import { DEFAULT_HOOK_OPTION_RENAMING } from './hooks.js';
 import { transformFileHookSignatures } from './hooks.js';
 
 async function copyToTemp(filePath: string) {
@@ -83,7 +84,7 @@ export async function runProviderCodemodDry(cwd: string) {
   return { totalFilesScanned: files.length, filesChanged: results.length, results };
 }
 
-export async function runHookCodemodDry(cwd: string, mapping = {}) {
+export async function runHookCodemodDry(cwd: string, mapping = DEFAULT_HOOK_OPTION_RENAMING) {
   const patterns = ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'];
   const files = await fg(patterns, { cwd, absolute: true, ignore: ['node_modules/**', 'dist/**'] });
   const results: any[] = [];

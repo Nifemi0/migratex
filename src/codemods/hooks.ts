@@ -8,15 +8,11 @@ export type HookOptionMap = Record<string, Record<string, string>>;
  * Hook signature options renaming codemod.
  * - mapping: { hookName: { oldOption: newOption } }
  * - Only applies when the first argument is an object literal
- *   and all keys in that object are present in the mapping for the hook (deterministic safety)
+ * - Renames only mapped keys and leaves unknown keys untouched
  */
 export const DEFAULT_HOOK_OPTION_RENAMING: HookOptionMap = {
-  // Conservative mapping for hook option key renames
-  // Only include high-confidence, exact renames documented in migration notes
-  useConnect: {
-    onSuccess: 'onConnected',
-    onError: 'onFailure'
-  }
+  // Keep default hook option mapping empty until each hook's option-shape
+  // migration is fully validated end-to-end against build/typecheck.
 };
 
 export async function transformFileHookSignatures(filePath: string, mapping: HookOptionMap = DEFAULT_HOOK_OPTION_RENAMING) {
@@ -73,20 +69,14 @@ export async function transformFileHookSignatures(filePath: string, mapping: Hoo
         propNames.push(keyText);
       }
 
-      // Only proceed if all property names are present in mapping for the imported hook
       const map = mapping[importedName];
-      const allKnown = propNames.every((k) => map[k] !== undefined);
-      if (!allKnown) {
-        diagnostics.push(`Skipped ${filePath}: call to ${importedName} (local ${localName}) has unknown option keys: ${propNames.join(', ')}`);
-        return;
-      }
 
       // Apply rename by replacing object literal text in-place
       const newPropsText = props.map((p: any) => {
         const nameNode = p.getNameNode();
         const keyTextRaw = nameNode.getText();
         const keyText = keyTextRaw.replace(/^['"]|['"]$/g, '');
-        const newKey = map[keyText] || keyText;
+        const newKey = map[keyText] ?? keyText;
         const initializer = (p as any).getInitializer().getText();
         return `${/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(newKey) ? newKey : `'${newKey}'`}: ${initializer}`;
       }).join(', ');

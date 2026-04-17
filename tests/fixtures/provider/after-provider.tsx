@@ -1,10 +1,10 @@
 import React from 'react';
-import { WagmiConfig } from 'wagmi';
+import { WagmiProvider } from 'wagmi';
 
 export function App() {
   return (
-    <WagmiConfig client={client}>
+    <WagmiProvider client={client}>
       <div />
-    </WagmiConfig>
+    </WagmiProvider>
   );
 }

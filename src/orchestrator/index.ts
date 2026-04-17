@@ -17,6 +17,16 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
     return { ...report, reportPaths };
   }
 
+  if (!scan.inScope) {
+    const report = {
+      ok: false,
+      reason: `unsupported wagmi version for this migration: ${scan.wagmiVersion} (expected v1.x)`,
+      scan,
+    };
+    const reportPaths = generateReport(outDir, report);
+    return { ...report, reportPaths };
+  }
+
   const plan = {
     target: 'wagmi-v2',
     steps: [
