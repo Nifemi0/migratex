@@ -10,6 +10,8 @@ npx codemod @nifemi0/wagmi-v1-to-v2
 
 Current published version: `0.1.2`
 
+Repository: https://github.com/Nifemi0/migratex
+
 ## What it does
 
 - Scans repository usage of `wagmi`
