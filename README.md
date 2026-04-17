@@ -8,7 +8,7 @@ Production-ready deterministic migration package for wagmi v1 to v2, built for C
 npx codemod @nifemi0/wagmi-v1-to-v2
 ```
 
-Current published version: `0.1.1`
+Current published version: `0.1.2`
 
 ## What it does
 
@@ -33,9 +33,20 @@ Validated with automated dry-runs on real open-source wagmi v1 repositories.
 
 | Repository | wagmi version | Files using wagmi | Files scanned | Files changed | Unresolved |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `fiveoutofnine/tx.cool` | `^1.3.9` | 1 | 48 | 0 | 0 |
-| `Bubble-Protocol/seedling` | `^1.4.12` | 3 | 63 | 0 | 0 |
-| `PinataCloud/pinata-nft-minting-app-template` | `^1.3.11` | 2 | 8 | 0 | 0 |
+| [`fiveoutofnine/tx.cool`](https://github.com/fiveoutofnine/tx.cool) | `^1.3.9` | 1 | 48 | 0 | 0 |
+| [`Bubble-Protocol/seedling`](https://github.com/Bubble-Protocol/seedling) | `^1.4.12` | 3 | 63 | 0 | 0 |
+| [`PinataCloud/pinata-nft-minting-app-template`](https://github.com/PinataCloud/pinata-nft-minting-app-template) | `^1.3.11` | 2 | 8 | 0 | 0 |
+
+### Apply-mode validation (real writes, non-dry-run)
+
+Validated with cloned repositories and `wagmi-v2 --apply`:
+
+| Repository | wagmi version | Files changed | Changed files |
+| --- | --- | ---: | --- |
+| [`bnb-chain/greenfield-data-marketplace-frontend`](https://github.com/bnb-chain/greenfield-data-marketplace-frontend) | `^0.12.12` | 1 | `src/hooks/useWallet.ts` |
+| [`LIT-Protocol/lit-pkp-auth-demo`](https://github.com/LIT-Protocol/lit-pkp-auth-demo) | `^0.12.8` | 1 | `src/hooks/useAuthenticate.ts` |
+| [`rabbitholegg/gateway`](https://github.com/rabbitholegg/gateway) | `1.4.2` | 0 | — |
+| [`web3sheet/web3sheet`](https://github.com/web3sheet/web3sheet) | `1.x` | 0 | — |
 
 Captured output summary:
 
