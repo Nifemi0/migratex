@@ -14,6 +14,10 @@ export type ScannerReport = {
     providerUsage?: string[];
     hooksUsed?: string[];
   }>;
+  actionablePatterns: {
+    total: number;
+    byPattern: Record<string, number>;
+  };
 };
 
 function detectPackageManager(cwd: string): ScannerReport["packageManager"] {
@@ -29,6 +33,11 @@ function parseWagmiMajor(version: string | null): number | null {
   if (!match) return null;
   const parsed = Number(match[0]);
   return Number.isFinite(parsed) ? parsed : null;
+}
+
+function countMatches(src: string, pattern: RegExp) {
+  const matches = src.match(pattern);
+  return matches ? matches.length : 0;
 }
 
 export async function scanRepo(cwd: string): Promise<ScannerReport> {
@@ -50,6 +59,16 @@ export async function scanRepo(cwd: string): Promise<ScannerReport> {
   const entries = await fg(patterns, { cwd, absolute: true, ignore: ["node_modules/**", "dist/**"] });
 
   const filesUsingWagmi: ScannerReport["filesUsingWagmi"] = [];
+  const actionableByPattern: Record<string, number> = {
+    hookRenames: 0,
+    wagmiConfigToProvider: 0,
+    useNetworkExact: 0,
+    queryOptionsTopLevel: 0,
+    erc20AbiImport: 0,
+    configureChainsUsage: 0,
+    removedProviderImports: 0,
+    prepareHooks: 0,
+  };
   const importRegex = /from\s+['\"]wagmi['\"]/g;
   const requireRegex = /require\(['\"]wagmi['\"]\)/g;
   const namedImportRegex = /import\s+{([^}]+)}\s+from\s+['\"]wagmi['\"]/;
@@ -88,8 +107,45 @@ export async function scanRepo(cwd: string): Promise<ScannerReport> {
         providerUsage,
         hooksUsed: Array.from(hooks),
       });
+
+      // Pattern counters (scoring denominator should be actionable patterns, not files).
+      const hookRenameSymbols = [
+        'useWallet',
+        'useContractRead',
+        'useContractReads',
+        'useContractWrite',
+        'useContractEvent',
+        'useContractInfiniteReads',
+        'useFeeData',
+        'useSwitchNetwork',
+        'useSigner',
+        'useProvider',
+        'useWaitForTransaction',
+      ];
+      for (const symbol of hookRenameSymbols) {
+        actionableByPattern.hookRenames += countMatches(
+          src,
+          new RegExp(`\\b${symbol}\\b`, 'g'),
+        );
+      }
+
+      actionableByPattern.wagmiConfigToProvider += countMatches(src, /\bWagmiConfig\b/g);
+      actionableByPattern.useNetworkExact += countMatches(src, /\buseNetwork\s*\(\s*\)/g);
+      actionableByPattern.queryOptionsTopLevel += countMatches(
+        src,
+        /\b(enabled|staleTime|cacheTime|gcTime|retry|retryDelay|refetchInterval|refetchOnMount|refetchOnReconnect|refetchOnWindowFocus|select|suspense)\s*:/g,
+      );
+      actionableByPattern.erc20AbiImport += countMatches(src, /\berc20ABI\b/g);
+      actionableByPattern.configureChainsUsage += countMatches(src, /\bconfigureChains\s*\(/g);
+      actionableByPattern.removedProviderImports += countMatches(src, /from\s+['"]wagmi\/providers\/[^'"]+['"]/g);
+      actionableByPattern.prepareHooks += countMatches(
+        src,
+        /\b(usePrepareContractWrite|usePrepareSendTransaction|usePrepareContractWrite)\b/g,
+      );
     }
   }
+
+  const actionableTotal = Object.values(actionableByPattern).reduce((acc, value) => acc + value, 0);
 
   return {
     packageManager: detectPackageManager(cwd),
@@ -97,5 +153,9 @@ export async function scanRepo(cwd: string): Promise<ScannerReport> {
     wagmiMajor,
     inScope,
     filesUsingWagmi,
+    actionablePatterns: {
+      total: actionableTotal,
+      byPattern: actionableByPattern,
+    },
   };
 }

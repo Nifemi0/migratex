@@ -15,6 +15,40 @@ export const DEFAULT_HOOK_OPTION_RENAMING: HookOptionMap = {
   // migration is fully validated end-to-end against build/typecheck.
 };
 
+const QUERY_OPTION_KEYS = new Set([
+  'enabled',
+  'staleTime',
+  'cacheTime',
+  'gcTime',
+  'retry',
+  'retryDelay',
+  'refetchInterval',
+  'refetchOnMount',
+  'refetchOnReconnect',
+  'refetchOnWindowFocus',
+  'select',
+  'suspense',
+]);
+
+const QUERY_OPTION_HOOKS = new Set([
+  'useContractRead',
+  'useContractReads',
+  'useReadContract',
+  'useReadContracts',
+  'useBalance',
+  'useBlock',
+  'useBlockNumber',
+  'useEnsName',
+  'useEnsAddress',
+  'useEnsAvatar',
+  'useFeeHistory',
+  'useInfiniteReadContracts',
+  'useToken',
+  'useTransaction',
+  'useWaitForTransaction',
+  'useWaitForTransactionReceipt',
+]);
+
 export async function transformFileHookSignatures(filePath: string, mapping: HookOptionMap = DEFAULT_HOOK_OPTION_RENAMING) {
   const src = fs.readFileSync(filePath, 'utf8');
   const project = new Project({
@@ -24,6 +58,7 @@ export async function transformFileHookSignatures(filePath: string, mapping: Hoo
   });
   const sourceFile = project.createSourceFile(filePath, src, { overwrite: true });
   let changed = false;
+  let migratedPatterns = 0;
   const diagnostics: string[] = [];
 
   // Build import alias map for wagmi imports: localName -> importedName
@@ -84,8 +119,58 @@ export async function transformFileHookSignatures(filePath: string, mapping: Hoo
       // Replace the object literal with new text
       first.replaceWithText(`{ ${newPropsText} }`);
       changed = true;
+      migratedPatterns += 1;
     } catch (e: any) {
       diagnostics.push(`Error processing call in ${filePath}: ${String(e.message || e)}`);
+    }
+  });
+
+  // Move top-level TanStack query options under `query` for exact object-literal matches.
+  const callsForQuery = sourceFile.getDescendantsOfKind(SyntaxKind.CallExpression);
+  callsForQuery.forEach((call) => {
+    try {
+      const expr = call.getExpression();
+      if (expr.getKind() !== SyntaxKind.Identifier) return;
+      const localName = expr.getText();
+      const importedName = importAliasMap.get(localName);
+      if (!importedName || !QUERY_OPTION_HOOKS.has(importedName)) return;
+
+      const args = call.getArguments();
+      if (!args || args.length === 0) return;
+      const first = args[0];
+      if (!first || first.getKind() !== SyntaxKind.ObjectLiteralExpression) return;
+
+      const obj = first as any;
+      const props = obj.getProperties();
+      if (!props.length) return;
+      if (props.some((p: any) => p.getKind() !== SyntaxKind.PropertyAssignment)) return;
+
+      const queryProp = props.find((p: any) => p.getNameNode && p.getNameNode().getText().replace(/^['"]|['"]$/g, '') === 'query');
+      if (queryProp) return;
+
+      const topLevelQueryProps: any[] = [];
+      const remainingProps: any[] = [];
+      props.forEach((p: any) => {
+        const nameNode = p.getNameNode();
+        const keyText = nameNode.getText().replace(/^['"]|['"]$/g, '');
+        if (QUERY_OPTION_KEYS.has(keyText)) topLevelQueryProps.push(p);
+        else remainingProps.push(p);
+      });
+
+      if (!topLevelQueryProps.length) return;
+
+      const topLevelQueryText = topLevelQueryProps
+        .map((p: any) => `${p.getNameNode().getText()}: ${p.getInitializer().getText()}`)
+        .join(', ');
+      const remainingText = remainingProps
+        .map((p: any) => `${p.getNameNode().getText()}: ${p.getInitializer().getText()}`)
+        .join(', ');
+      const merged = remainingText ? `${remainingText}, query: { ${topLevelQueryText} }` : `query: { ${topLevelQueryText} }`;
+      first.replaceWithText(`{ ${merged} }`);
+      changed = true;
+      migratedPatterns += topLevelQueryProps.length;
+    } catch (e: any) {
+      diagnostics.push(`Error nesting query options in ${filePath}: ${String(e.message || e)}`);
     }
   });
 
@@ -94,7 +179,7 @@ export async function transformFileHookSignatures(filePath: string, mapping: Hoo
     fs.writeFileSync(filePath, out, 'utf8');
   }
 
-  return { filePath, changed, diagnostics };
+  return { filePath, changed, migratedPatterns, diagnostics };
 }
 
 export async function runHookCodemod(cwd: string, mapping: HookOptionMap = DEFAULT_HOOK_OPTION_RENAMING) {

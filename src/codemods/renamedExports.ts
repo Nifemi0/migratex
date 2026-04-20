@@ -7,7 +7,13 @@ export type RenameMap = Record<string, string>;
 export const DEFAULT_EXPORT_RENAMING: RenameMap = {
   // High-confidence export renames
   useWallet: "useAccount",
-  useNetwork: "useChainId",
+  useContractRead: "useReadContract",
+  useContractReads: "useReadContracts",
+  useContractWrite: "useWriteContract",
+  useContractEvent: "useWatchContractEvent",
+  useContractInfiniteReads: "useInfiniteReadContracts",
+  useFeeData: "useEstimateFeesPerGas",
+  useSwitchNetwork: "useSwitchChain",
   useSigner: "useWalletClient",
   useProvider: "usePublicClient",
   useWaitForTransaction: "useWaitForTransactionReceipt",
@@ -25,6 +31,7 @@ export async function transformFileRenamedExports(filePath: string, renameMap: R
 
   const sourceFile = project.createSourceFile(filePath, src, { overwrite: true });
   let changed = false;
+  let migratedPatterns = 0;
   const diagnostics: string[] = [];
 
   // 1) Handle namespace imports: import * as Wagmi from 'wagmi';
@@ -42,6 +49,7 @@ export async function transformFileRenamedExports(filePath: string, renameMap: R
       if (expr.getText() === nsName && renameMap[name]) {
         pa.getNameNode().replaceWithText(renameMap[name]);
         changed = true;
+        migratedPatterns += 1;
       }
     });
   });
@@ -59,6 +67,7 @@ export async function transformFileRenamedExports(filePath: string, renameMap: R
         const alias = ne.getAliasNode() ? ne.getAliasNode()!.getText() : null;
         ne.replaceWithText(newName + (alias ? ` as ${alias}` : ""));
         changed = true;
+        migratedPatterns += 1;
       }
     });
   });
@@ -68,7 +77,7 @@ export async function transformFileRenamedExports(filePath: string, renameMap: R
     fs.writeFileSync(filePath, out, "utf8");
   }
 
-  return { filePath, changed, diagnostics };
+  return { filePath, changed, migratedPatterns, diagnostics };
 }
 
 export async function runRenamedExportsCodemod(cwd: string, renameMap: RenameMap) {

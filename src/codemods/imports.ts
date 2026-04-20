@@ -10,7 +10,7 @@
 
 import fs from "fs";
 import path from "path";
-import { Project, QuoteKind } from "ts-morph";
+import { Project, QuoteKind, SyntaxKind } from "ts-morph";
 import fg from "fast-glob";
 
 export type RenameMap = Record<string, string>;
@@ -23,7 +23,13 @@ export const DEFAULT_IMPORT_RENAMING: RenameMap = {
   // High-confidence symbol renames
   // Hooks
   "useWallet": "useAccount",
-  "useNetwork": "useChainId",
+  "useContractRead": "useReadContract",
+  "useContractReads": "useReadContracts",
+  "useContractWrite": "useWriteContract",
+  "useContractEvent": "useWatchContractEvent",
+  "useContractInfiniteReads": "useInfiniteReadContracts",
+  "useFeeData": "useEstimateFeesPerGas",
+  "useSwitchNetwork": "useSwitchChain",
   "useSigner": "useWalletClient",
   "useProvider": "usePublicClient",
   "useWaitForTransaction": "useWaitForTransactionReceipt",
@@ -46,6 +52,7 @@ export async function transformFileImports(filePath: string, renameMap: RenameMa
   const sourceFile = project.createSourceFile(filePath, src, { overwrite: true });
 
   let changed = false;
+  let migratedPatterns = 0;
   const diagnostics: string[] = [];
 
   sourceFile.getImportDeclarations().forEach((imp) => {
@@ -55,8 +62,62 @@ export async function transformFileImports(filePath: string, renameMap: RenameMa
     const namedImports = imp.getNamedImports();
     if (namedImports.length === 0) return;
 
-    // Apply rename for each known named import
+    // Move erc20ABI import from wagmi -> viem (erc20Abi).
     namedImports.forEach((ni) => {
+      if (ni.getName() !== "erc20ABI") return;
+
+      const aliasNode = ni.getAliasNode();
+      const alias = aliasNode ? aliasNode.getText() : null;
+
+      let refs: any[] = [];
+      try {
+        refs = ni.getNameNode().findReferences();
+      } catch (e) {
+        diagnostics.push(`Warning: couldn't collect references for erc20ABI in ${filePath}: ${String(e)}`);
+      }
+
+      ni.remove();
+
+      const viemImport =
+        sourceFile
+          .getImportDeclarations()
+          .find((d) => d.getModuleSpecifierValue() === "viem") ??
+        sourceFile.addImportDeclaration({
+          moduleSpecifier: "viem",
+          namedImports: [],
+        });
+
+      const existingViem = viemImport
+        .getNamedImports()
+        .find((n) => n.getName() === "erc20Abi" && ((alias ? n.getAliasNode()?.getText() : null) ?? null) === alias);
+      if (!existingViem) {
+        viemImport.addNamedImport(alias ? { name: "erc20Abi", alias } : "erc20Abi");
+      }
+
+      if (!alias) {
+        try {
+          refs.forEach((ref: any) => {
+            ref.getReferences().forEach((r: any) => {
+              const node = r.getNode();
+              const parent = node.getParent();
+              if (parent && parent.getKind && parent.getKind() === SyntaxKind.ImportSpecifier) return;
+              if (node.replaceWithText) node.replaceWithText("erc20Abi");
+            });
+          });
+        } catch (e) {
+          diagnostics.push(`Warning: couldn't update references for erc20ABI in ${filePath}: ${String(e)}`);
+        }
+      }
+
+      if (imp.getNamedImports().length === 0 && !imp.getDefaultImport() && !imp.getNamespaceImport()) {
+        imp.remove();
+      }
+      changed = true;
+      migratedPatterns += 1;
+    });
+
+    // Apply rename for each known named import
+    imp.getNamedImports().forEach((ni) => {
       const oldName = ni.getName();
       const newName = renameMap[oldName];
       if (!newName) return;
@@ -88,6 +149,7 @@ export async function transformFileImports(filePath: string, renameMap: RenameMa
           diagnostics.push(`Warning: couldn't update references for ${oldName} in ${filePath}: ${String(e)}`);
         }
         changed = true;
+        migratedPatterns += 1;
       }
     });
   });
@@ -97,7 +159,7 @@ export async function transformFileImports(filePath: string, renameMap: RenameMa
     fs.writeFileSync(filePath, out, "utf8");
   }
 
-  return { filePath, changed, diagnostics };
+  return { filePath, changed, migratedPatterns, diagnostics };
 }
 
 /**

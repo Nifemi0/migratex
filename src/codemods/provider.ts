@@ -8,6 +8,7 @@ export async function transformFileProvider(filePath: string) {
   const sourceFile = project.createSourceFile(filePath, src, { overwrite: true });
 
   let changed = false;
+  let migratedPatterns = 0;
   const diagnostics: string[] = [];
 
   // Replace named import WagmiConfig -> WagmiProvider in imports from 'wagmi'
@@ -18,6 +19,7 @@ export async function transformFileProvider(filePath: string) {
       if (ni.getName() === 'WagmiConfig') {
         ni.replaceWithText('WagmiProvider' + (ni.getAliasNode() ? ` as ${ni.getAliasNode()!.getText()}` : ''));
         changed = true;
+        migratedPatterns += 1;
       }
     });
   });
@@ -31,6 +33,7 @@ export async function transformFileProvider(filePath: string) {
       if (tagName === 'WagmiConfig') {
         tagNode.replaceWithText('WagmiProvider');
         changed = true;
+        migratedPatterns += 1;
       }
     } catch (e) {
       diagnostics.push(`Failed updating JSX opening tag in ${filePath}: ${String(e)}`);
@@ -45,6 +48,7 @@ export async function transformFileProvider(filePath: string) {
       if (tagName === 'WagmiConfig') {
         tagNode.replaceWithText('WagmiProvider');
         changed = true;
+        migratedPatterns += 1;
       }
     } catch (e) {
       diagnostics.push(`Failed updating JSX self-closing tag in ${filePath}: ${String(e)}`);
@@ -60,6 +64,7 @@ export async function transformFileProvider(filePath: string) {
       if (tagName === 'WagmiConfig') {
         tagNode.replaceWithText('WagmiProvider');
         changed = true;
+        migratedPatterns += 1;
       }
     } catch (e) {
       diagnostics.push(`Failed updating JSX closing tag in ${filePath}: ${String(e)}`);
@@ -71,7 +76,7 @@ export async function transformFileProvider(filePath: string) {
     fs.writeFileSync(filePath, out, 'utf8');
   }
 
-  return { filePath, changed, diagnostics };
+  return { filePath, changed, migratedPatterns, diagnostics };
 }
 
 export async function runProviderCodemod(cwd: string) {

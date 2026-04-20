@@ -3,8 +3,9 @@ import path from 'path';
 import { scanRepo } from '../scanner/index.js';
 import { runImportCodemod } from '../codemods/imports.js';
 import { runRenamedExportsCodemod } from '../codemods/renamedExports.js';
-import { runImportCodemodDry, runRenamedExportsCodemodDry, runProviderCodemodDry } from '../codemods/dryRunner.js';
+import { runImportCodemodDry, runRenamedExportsCodemodDry, runProviderCodemodDry, runUseNetworkCodemodDry } from '../codemods/dryRunner.js';
 import { runProviderCodemod } from '../codemods/provider.js';
+import { runUseNetworkCodemod } from '../codemods/useNetwork.js';
 import { generateReport } from '../report/index.js';
 
 export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir?: string }) {
@@ -33,6 +34,7 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
       { id: 'imports', description: 'Rename known imports', confidence: 0.95 },
       { id: 'renamedExports', description: 'Rename known exported names', confidence: 0.9 },
       { id: 'provider', description: 'Provider/client setup updates', confidence: 0.85 },
+      { id: 'useNetwork', description: 'Exact useNetwork -> useAccount/useConfig rewrites', confidence: 0.9 },
       { id: 'hooks', description: 'Hook option signature renames', confidence: 0.9 }
     ]
   };
@@ -40,17 +42,20 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
   let importsRes: any;
   let exportsRes: any;
   let providerRes: any;
+  let useNetworkRes: any;
 
   if (opts?.apply) {
     // run dry to collect files to snapshot
     const importsDry = await runImportCodemodDry(cwd, undefined as any);
     const exportsDry = await runRenamedExportsCodemodDry(cwd, undefined as any);
     const providerDry = await runProviderCodemodDry(cwd);
+    const useNetworkDry = await runUseNetworkCodemodDry(cwd);
 
     const filesToSnapshot = new Set<string>();
     (importsDry.results || []).forEach((r: any) => { if (r.changed) filesToSnapshot.add(r.filePath); });
     (exportsDry.results || []).forEach((r: any) => { if (r.changed) filesToSnapshot.add(r.filePath); });
     (providerDry.results || []).forEach((r: any) => { if (r.changed) filesToSnapshot.add(r.filePath); });
+    (useNetworkDry.results || []).forEach((r: any) => { if (r.changed) filesToSnapshot.add(r.filePath); });
 
     if (filesToSnapshot.size > 0) {
       const snapsDir = path.join(outDir, 'snapshots');
@@ -70,6 +75,7 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
     importsRes = await runImportCodemod(cwd, undefined as any);
     exportsRes = await runRenamedExportsCodemod(cwd, undefined as any);
     providerRes = await runProviderCodemod(cwd);
+    useNetworkRes = await runUseNetworkCodemod(cwd);
     // run hooks codemod (apply)
     const { runHookCodemod } = await import('../codemods/hooks.js');
     const hooksResApply = await runHookCodemod(cwd);
@@ -78,6 +84,7 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
     importsRes = await runImportCodemodDry(cwd, undefined as any);
     exportsRes = await runRenamedExportsCodemodDry(cwd, undefined as any);
     providerRes = await runProviderCodemodDry(cwd);
+    useNetworkRes = await runUseNetworkCodemodDry(cwd);
     const { runHookCodemodDry } = await import('../codemods/dryRunner.js');
     const hooksResDry = await runHookCodemodDry(cwd);
     var hooksRes = hooksResDry;
@@ -88,7 +95,28 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
   (importsRes.results || []).forEach((r: any) => { if (r.diagnostics && r.diagnostics.length) unresolved.push(r); });
   (exportsRes.results || []).forEach((r: any) => { if (r.diagnostics && r.diagnostics.length) unresolved.push(r); });
   (providerRes.results || []).forEach((r: any) => { if (r.diagnostics && r.diagnostics.length) unresolved.push(r); });
+  (useNetworkRes.results || []).forEach((r: any) => { if (r.diagnostics && r.diagnostics.length) unresolved.push(r); });
   (hooksRes.results || []).forEach((r: any) => { if (r.diagnostics && r.diagnostics.length) unresolved.push(r); });
+
+  const deterministicPatternMigrations =
+    (importsRes.results || []).reduce((acc: number, r: any) => acc + (r.migratedPatterns || 0), 0) +
+    (exportsRes.results || []).reduce((acc: number, r: any) => acc + (r.migratedPatterns || 0), 0) +
+    (providerRes.results || []).reduce((acc: number, r: any) => acc + (r.migratedPatterns || 0), 0) +
+    (useNetworkRes.results || []).reduce((acc: number, r: any) => acc + (r.migratedPatterns || 0), 0) +
+    (hooksRes.results || []).reduce((acc: number, r: any) => acc + (r.migratedPatterns || 0), 0);
+
+  const actionablePatternsDetected = scan.actionablePatterns?.total ?? 0;
+  const deterministicCoveragePct = actionablePatternsDetected > 0
+    ? Number(((deterministicPatternMigrations / actionablePatternsDetected) * 100).toFixed(1))
+    : 0;
+
+  const metrics = {
+    patternsDetected: actionablePatternsDetected,
+    patternsMigratedDeterministic: deterministicPatternMigrations,
+    patternsSkipped: Math.max(actionablePatternsDetected - deterministicPatternMigrations, 0),
+    patternsAICandidate: Math.max(actionablePatternsDetected - deterministicPatternMigrations, 0),
+    deterministicCoveragePct,
+  };
 
 
   const report = {
@@ -98,7 +126,9 @@ export async function runMigration(cwd: string, opts?: { apply?: boolean; outDir
     imports: importsRes,
     renamedExports: exportsRes,
     provider: providerRes,
+    useNetwork: useNetworkRes,
     hooks: hooksRes,
+    metrics,
     unresolved,
     applied: !!opts?.apply
   };

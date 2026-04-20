@@ -7,6 +7,7 @@ import { transformFileRenamedExports, DEFAULT_EXPORT_RENAMING } from './renamedE
 import { transformFileProvider } from './provider.js';
 import { DEFAULT_HOOK_OPTION_RENAMING } from './hooks.js';
 import { transformFileHookSignatures } from './hooks.js';
+import { transformFileUseNetwork } from './useNetwork.js';
 
 async function copyToTemp(filePath: string) {
   const tmpDir = path.join(process.cwd(), '.migratex_tmp');
@@ -34,7 +35,7 @@ export async function runImportCodemodDry(cwd: string, renameMap = DEFAULT_IMPOR
       const res = await transformFileImports(tmp, renameMap);
       if (res.changed) {
         const newText = fs.readFileSync(tmp, 'utf8');
-        results.push({ filePath: f, changed: true, preview: newText, diagnostics: res.diagnostics || [] });
+        results.push({ filePath: f, changed: true, preview: newText, migratedPatterns: res.migratedPatterns ?? 0, diagnostics: res.diagnostics || [] });
       }
     } catch (err) {
       results.push({ filePath: f, error: String(err) });
@@ -54,7 +55,7 @@ export async function runRenamedExportsCodemodDry(cwd: string, renameMap = DEFAU
       const res = await transformFileRenamedExports(tmp, renameMap);
       if (res.changed) {
         const newText = fs.readFileSync(tmp, 'utf8');
-        results.push({ filePath: f, changed: true, preview: newText, diagnostics: res.diagnostics || [] });
+        results.push({ filePath: f, changed: true, preview: newText, migratedPatterns: res.migratedPatterns ?? 0, diagnostics: res.diagnostics || [] });
       }
     } catch (err) {
       results.push({ filePath: f, error: String(err) });
@@ -74,7 +75,7 @@ export async function runProviderCodemodDry(cwd: string) {
       const res = await transformFileProvider(tmp);
       if (res.changed) {
         const newText = fs.readFileSync(tmp, 'utf8');
-        results.push({ filePath: f, changed: true, preview: newText, diagnostics: res.diagnostics || [] });
+        results.push({ filePath: f, changed: true, preview: newText, migratedPatterns: res.migratedPatterns ?? 0, diagnostics: res.diagnostics || [] });
       }
     } catch (err) {
       results.push({ filePath: f, error: String(err) });
@@ -94,7 +95,7 @@ export async function runHookCodemodDry(cwd: string, mapping = DEFAULT_HOOK_OPTI
       const res = await transformFileHookSignatures(tmp, mapping as any);
       if (res.changed) {
         const newText = fs.readFileSync(tmp, 'utf8');
-        results.push({ filePath: f, changed: true, preview: newText, diagnostics: res.diagnostics || [] });
+        results.push({ filePath: f, changed: true, preview: newText, migratedPatterns: res.migratedPatterns ?? 0, diagnostics: res.diagnostics || [] });
       }
     } catch (err) {
       results.push({ filePath: f, error: String(err) });
@@ -104,4 +105,24 @@ export async function runHookCodemodDry(cwd: string, mapping = DEFAULT_HOOK_OPTI
   return { totalFilesScanned: files.length, filesChanged: results.length, results };
 }
 
-export default { runImportCodemodDry, runRenamedExportsCodemodDry, runProviderCodemodDry };
+export async function runUseNetworkCodemodDry(cwd: string) {
+  const patterns = ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'];
+  const files = await fg(patterns, { cwd, absolute: true, ignore: ['node_modules/**', 'dist/**'] });
+  const results: any[] = [];
+  for (const f of files) {
+    try {
+      const tmp = await copyToTemp(f);
+      const res = await transformFileUseNetwork(tmp);
+      if (res.changed) {
+        const newText = fs.readFileSync(tmp, 'utf8');
+        results.push({ filePath: f, changed: true, preview: newText, migratedPatterns: res.migratedPatterns ?? 0, diagnostics: res.diagnostics || [] });
+      }
+    } catch (err) {
+      results.push({ filePath: f, error: String(err) });
+    }
+  }
+  await cleanupTemp();
+  return { totalFilesScanned: files.length, filesChanged: results.length, results };
+}
+
+export default { runImportCodemodDry, runRenamedExportsCodemodDry, runProviderCodemodDry, runUseNetworkCodemodDry };
