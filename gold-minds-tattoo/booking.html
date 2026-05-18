@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Session | Gold Minds Tattoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">GOLD <span class="text-gold">MINDS</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/artists.html">Artists</a></li>
+                <li><a href="/booking.html" class="text-gold">Booking</a></li>
+                <li><a href="/location.html">Location</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="booking-header">
+            <h1>Ink Your <span class="text-gold">Story</span></h1>
+            <p>Book a consultation with our award-winning artists.</p>
+        </section>
+
+        <section id="booking">
+            <div class="booking-container">
+                <form class="booking-form" name="booking" method="POST" data-netlify="true">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">Preferred Artist</label>
+                        <select id="artist" name="artist">
+                            <option value="none">No Preference</option>
+                            <option value="chris">Chris Young</option>
+                            <option value="inkcredible">Mr. Inkcredible</option>
+                            <option value="sebastien">Sebastien Crooks</option>
+                            <option value="tessa">Tessa</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="idea">Tattoo Idea</label>
+                        <textarea id="idea" name="idea" rows="4"
+                            placeholder="Describe your tattoo vision..."></textarea>
+                    </div>
+                    <div class="form-group full">
+                        <label for="reference">Reference Images</label>
+                        <div class="file-input-wrapper">
+                            <p id="file-text">Drop images here or click to upload</p>
+                            <input type="file" id="reference" name="reference" multiple style="display: none;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Gold Minds Tattoo. All Rights Reserved.</p>
+    </footer>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location & Hours | Gold Minds Tattoo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">GOLD <span class="text-gold">MINDS</span></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/artists.html">Artists</a></li>
+                <li><a href="/booking.html">Booking</a></li>
+                <li><a href="/location.html" class="text-gold">Location</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="location-header">
+            <h1>Visit the <span class="text-gold">Studio</span></h1>
+            <p>Located in the heart of Boca Raton, FL.</p>
+        </section>
+
+        <section class="location-container">
+            <div class="map-wrapper">
+                <!-- Using hero image as placeholder for map -->
+                <img src="/hero.jpg" alt="Map Location" class="map-placeholder" loading="lazy">
+                <div
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                    <p style="font-family: var(--font-display); font-size: 1.2rem;">Google Map Embed Here</p>
+                    <p style="color: var(--text-muted);">Boca Raton, FL</p>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-item">
+                    <h3>Address</h3>
+                    <p>123 Luxury Way, Suite 100<br>Boca Raton, FL 33432</p>
+                </div>
+                <div class="info-item">
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Saturday: 12:00 PM - 8:00 PM<br>Sunday: Appointment Only</p>
+                </div>
+                <div class="info-item">
+                    <h3>Contact</h3>
+                    <p>Phone: (561) 555-0123<br>Email: info@goldmindstattoo.com</p>
+                </div>
+                <div class="info-item">
+                    <h3>Parking Info</h3>
+                    <p>Free underground parking available for all clients. Validation provided in-studio.</p>
+                </div>
+
+                <div class="badge-grid">
+                    <span class="badge">Licensed Studio</span>
+                    <span class="badge">Sterile Equipment</span>
+                    <span class="badge">Health Compliant</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Gold Minds Tattoo. All Rights Reserved.</p>
+    </footer>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "dynamic-island",
+  "version": "0.1.0",
+  "description": "Lightweight responsive desktop island for notifications and music controls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "dynamic",
+    "island",
+    "desktop"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^26.2.1"
+  }
+}

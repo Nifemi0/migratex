@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Process | NUVIXES STUDIO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Neue_Montreal';
+            src: url('https://fonts.cdnfonts.com/css/neue-montreal');
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F1EF;
+            color: #1E2030;
+        }
+        .font-neue {
+            font-family: 'Neue_Montreal', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#151938",
+                        "secondary-fixed": "#dfe0ff",
+                        "surface-dim": "#dbdad8",
+                        "surface-container-low": "#f4f3f1",
+                        "secondary-fixed-dim": "#c1c4ec",
+                        "primary-container": "#1e2030",
+                        "surface-container-highest": "#e3e2e0",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dfe1f5",
+                        "on-background": "#1a1c1b",
+                        "on-surface": "#1a1c1b",
+                        "surface-variant": "#e3e2e0",
+                        "on-secondary-fixed-variant": "#404466",
+                        "on-primary-container": "#86879b",
+                        "surface-container-high": "#e9e8e6",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#575b7e",
+                        "primary": "#070918",
+                        "primary-fixed": "#e1e1f7",
+                        "surface": "#faf9f7",
+                        "on-tertiary-container": "#85889a",
+                        "on-primary-fixed-variant": "#444657",
+                        "outline-variant": "#c7c5cd",
+                        "secondary-container": "#d1d4fd",
+                        "inverse-on-surface": "#f2f1ef",
+                        "tertiary": "#070a18",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c4c5da",
+                        "outline": "#77767d",
+                        "primary-fixed-dim": "#c4c5da",
+                        "on-tertiary-fixed": "#171b29",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#434656",
+                        "on-primary-fixed": "#181a2a",
+                        "background": "#faf9f7",
+                        "surface-tint": "#5c5d70",
+                        "on-surface-variant": "#46464c",
+                        "tertiary-container": "#1d212f",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#faf9f7",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3130",
+                        "surface-container": "#efeeec",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#c3c5d9",
+                        "secondary": "#585c7f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary selection:bg-primary-fixed selection:text-primary">
+<!-- TopAppBar -->
+<nav class="bg-[#F2F1EF] dark:bg-[#1E2030] docked full-width top-0 z-50 fixed">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto font-inter tracking-[-0.02em] font-medium">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1E2030] dark:text-[#F2F1EF] cursor-pointer hover:opacity-70 transition-opacity" data-icon="menu">menu</span>
+<div class="flex items-center gap-2">
+<!-- Cropped logo from sprite -->
+<div class="w-8 h-8 overflow-hidden flex items-center justify-center">
+<img alt="Nuvixes Logo" class="max-w-none w-[400px] h-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ" style="object-position: -20px -75px; object-fit: none; transform: scale(0.6);"/>
+</div>
+<span class="text-xl font-bold tracking-tighter text-[#1E2030] dark:text-[#F2F1EF] uppercase">NUVIXES</span>
+</div>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Work</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Services</a>
+<a class="text-[#1E2030] dark:text-[#F2F1EF] border-b-2 border-[#1E2030] dark:border-[#F2F1EF] uppercase tracking-[0.1em] text-[11px]" href="#">Process</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</div>
+<button class="text-[#1E2030] dark:text-[#F2F1EF] font-medium hover:opacity-70 transition-opacity duration-300 active:scale-95 duration-200">CONTACT</button>
+</div>
+</nav>
+<main class="max-w-[1200px] mx-auto px-12 pt-40 pb-24">
+<!-- Hero Section -->
+<header class="mb-32">
+<div class="asymmetric-grid">
+<div class="col-span-12 md:col-span-8">
+<p class="text-[0.68rem] font-bold tracking-[0.1em] text-primary uppercase mb-6">How We Build</p>
+<h1 class="text-5xl md:text-7xl font-neue font-bold tracking-tight mb-12 leading-none">
+                    Our workflow is <br/> our signature.
+                </h1>
+<p class="text-xl md:text-2xl text-secondary leading-relaxed max-w-2xl font-light">
+                    A disciplined, five-step architectural approach to digital design. We remove ambiguity through precise execution and brutal transparency.
+                </p>
+</div>
+</div>
+</header>
+<!-- Progress Track -->
+<div class="w-full h-[2px] bg-primary mb-24"></div>
+<!-- Steps Section -->
+<div class="space-y-48">
+<!-- Step 1: Discover -->
+<section class="asymmetric-grid items-start gap-12">
+<div class="col-span-12 md:col-span-1">
+<span class="text-3xl font-neue font-black text-primary opacity-20">01</span>
+</div>
+<div class="col-span-12 md:col-span-4">
+<h2 class="text-4xl font-neue font-bold mb-6">Discover</h2>
+<p class="text-primary leading-relaxed mb-8">
+                    The foundation of every project begins with immersion. We analyze your market position, define technical constraints, and uncover the latent potential of your brand through deep inquiry.
+                </p>
+<div class="p-8 bg-surface-container-low border-l-4 border-primary">
+<p class="text-[0.68rem] font-bold tracking-[0.1em] uppercase mb-4 text-secondary">Client Expectation</p>
+<p class="text-sm font-medium italic">"Expect 3-4 intensive discovery sessions and a comprehensive competitive landscape audit within week one."</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<div class="aspect-[4/3] bg-surface-container-high overflow-hidden">
+<img alt="Discovery Phase" class="w-full h-full object-cover mix-blend-multiply opacity-80 grayscale" data-alt="Monochrome overhead shot of a clean workspace with architectural blueprints, a sleek laptop, and minimalist design sketches on heavy paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCVBxjFhsp6gxqc67C-mlGX-6qWWQzr15KO7EfvwRRVvOTO8liQA4IBWWcBHWnle9-0Lt3zOi3hwcvmY2A89iyIuuy7AMNPfPqrTXO55roUhsNFaotAabXgn9VpiT0phla2CVKj-W2JnBeihVeVYZ9CFW-EMaGSS3oOZck2i1c7AyNNduTryDSLUb1iqQEUUuQLjWpnpt0ZR3vI7ZtZTNk8ZOdUE4Lf2ypXhUGNRdHLcOINOVU1w5IXiehkVLQCDooYbd4eaUmmO_M"/>
+</div>
+</div>
+</section>
+<!-- Step 2: Strategy -->
+<section class="asymmetric-grid items-start gap-12">
+<div class="col-span-12 md:col-span-1 order-1 md:order-3">
+<span class="text-3xl font-neue font-black text-primary opacity-20">02</span>
+</div>
+<div class="col-span-12 md:col-span-6 order-2 md:order-1">
+<div class="aspect-[16/9] bg-surface-container-high overflow-hidden">
+<img alt="Strategy Phase" class="w-full h-full object-cover grayscale" data-alt="Abstract composition of geometric glass blocks refracting light onto a dark navy surface with clean typography overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGeX3QNCUdFNZY5MorUQssUDMGf355783wqyjexkg6HbinRyIozOgX1BrfPCkBO2_ae88js1tssUnRY0j_b909mQ3PR1wERQYBWvjbQ1QVEKLQuH4OtLbpFbmktwjzD8UkmTh9VvfyYldUAks9uqsBsCqjG8WpXwHDEP55pGNBW4H5hKyeCfd0x5kvKSKgwkYHOUY0VUuZZBng-bLSvN_GF3qNrjSX39q3HQolrBvuQD-n7X_Zg7MkK9niZNiZBHBTICgrFlhBenZT"/>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 md:col-start-8 order-3 md:order-2">
+<h2 class="text-4xl font-neue font-bold mb-6">Strategy</h2>
+<p class="text-primary leading-relaxed mb-8">
+                    Data meets intuition. We distill the discovery findings into a rigorous roadmap. This document serves as the project's 'North Star', defining the visual direction and user journey before a single pixel is moved.
+                </p>
+<div class="p-8 bg-surface-container-low border-l-4 border-primary">
+<p class="text-[0.68rem] font-bold tracking-[0.1em] uppercase mb-4 text-secondary">Client Expectation</p>
+<p class="text-sm font-medium italic">"A definitive Strategy Blueprint delivery that requires formal sign-off before proceeding to creative execution."</p>
+</div>
+</div>
+</section>
+<!-- Step 3: Design -->
+<section class="asymmetric-grid items-start gap-12">
+<div class="col-span-12 md:col-span-1">
+<span class="text-3xl font-neue font-black text-primary opacity-20">03</span>
+</div>
+<div class="col-span-12 md:col-span-4">
+<h2 class="text-4xl font-neue font-bold mb-6">Design</h2>
+<p class="text-primary leading-relaxed mb-8">
+                    Using the 'Curated Monolith' philosophy, we craft high-fidelity interfaces that prioritize clarity and tension. We focus on the architecture of typography and the hierarchy of space to create an archival-quality aesthetic.
+                </p>
+<div class="p-8 bg-surface-container-low border-l-4 border-primary">
+<p class="text-[0.68rem] font-bold tracking-[0.1em] uppercase mb-4 text-secondary">Client Expectation</p>
+<p class="text-sm font-medium italic">"Presentation of core components and 3 primary layout directions. We iterate on the selected path until refined."</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-highest">
+<img alt="Design detail" class="w-full h-full object-cover grayscale" data-alt="Close-up of high-end editorial typography on a screen with deep shadows and soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6-JxNlT-KstXP8t-zKsiuJZXC9JXwyly9d-JXBYI9o2eDXaFOoYauHD5xg-x8q1oHfB512W11xMI4KW39KFnSnh9IbzDGiK11VuLZ8H-C6NFr1nf4dEfIauO6NSz0p4bo43cDqyBxukxeSpubiuNzbhby7ojAKjzr_ib2KBmTyg52MnvpqHeDmtUyvipQmKT9UPb5YQQUeIu70faEgi3irBf_CiAeQC3vTVM0ioBRjtlJIRFQ9KUKHOfocj04-1xsIXXPuAjBuZZC"/>
+</div>
+<div class="aspect-square bg-surface-container-high translate-y-12">
+<img alt="Design detail 2" class="w-full h-full object-cover grayscale" data-alt="Minimalist abstract architectural shapes in concrete and steel showing balance and symmetry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbR0fVUykH3eo9R1tDJeWsBaMdppyJPWTsUBew6yj5RhQTzQKSGC0t1maEz7IcyrQX1b8v9hDvnkwXKtN5-ud3Sdh-BdFEbfCu1NESIn8j_6clBnwe-0dJ-jGVluyA9CDJHjMdFUBXLTtyC8Zh8QvE-c6C8cWupcHm29Z90mRMhMGgiR8K0TLF0szsNkyVUjs_0eQ8rYlIv_h8r9ngsRgfxR1EGu5W94ngu6R4c13Eg9tFFk-DhhRp9VxL-BX1Uwnf0ypBndC3QDbV"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 4: Build -->
+<section class="asymmetric-grid items-start gap-12">
+<div class="col-span-12 md:col-span-1 order-1 md:order-3">
+<span class="text-3xl font-neue font-black text-primary opacity-20">04</span>
+</div>
+<div class="col-span-12 md:col-span-6 order-2 md:order-1">
+<div class="aspect-[16/10] bg-primary overflow-hidden p-12 flex flex-col justify-end">
+<div class="text-[#F2F1EF]/10 font-mono text-[10rem] font-bold leading-none select-none">CODE</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 md:col-start-8 order-3 md:order-2">
+<h2 class="text-4xl font-neue font-bold mb-6">Build</h2>
+<p class="text-primary leading-relaxed mb-8">
+                    Development at Nuvixes is not an afterthought. We translate the design system into robust, performant code, ensuring that the visual precision is matched by technical excellence.
+                </p>
+<div class="p-8 bg-surface-container-low border-l-4 border-primary">
+<p class="text-[0.68rem] font-bold tracking-[0.1em] uppercase mb-4 text-secondary">Client Expectation</p>
+<p class="text-sm font-medium italic">"Weekly staging site updates. You will see the interface come to life in a secure environment."</p>
+</div>
+</div>
+</section>
+<!-- Step 5: Launch -->
+<section class="asymmetric-grid items-start gap-12">
+<div class="col-span-12 md:col-span-1">
+<span class="text-3xl font-neue font-black text-primary opacity-20">05</span>
+</div>
+<div class="col-span-12 md:col-span-4">
+<h2 class="text-4xl font-neue font-bold mb-6">Launch</h2>
+<p class="text-primary leading-relaxed mb-8">
+                    The final transition from creation to reality. We handle the deployment architecture, SEO migration, and performance optimization to ensure a flawless entry into the market.
+                </p>
+<div class="p-8 bg-surface-container-low border-l-4 border-primary">
+<p class="text-[0.68rem] font-bold tracking-[0.1em] uppercase mb-4 text-secondary">Client Expectation</p>
+<p class="text-sm font-medium italic">"Comprehensive CMS training and a 30-day post-launch hyper-care period for any final adjustments."</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<div class="aspect-[3/4] bg-surface-container-high overflow-hidden">
+<img alt="Launch Phase" class="w-full h-full object-cover grayscale opacity-90" data-alt="A large empty gallery space with white walls and polished concrete floors, symbolizing a clean launch and new beginnings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9m51eLzEXR2Qtd2cGTc-A9nDvbB4CGwCERM2PmOmgQeO-L4cZsV4HdpV9DxVGbFoLIMWh032y1QSIkfmsvKzNoamcezD3gcafdJLy9OjH5IodVLntaD8iI0fyv0cVaj5kL0C45mSwbP6JjZaDfxaJdoudcz7bXmn8AF4foTOIHHr8EMkMagFKQlykMgxR-5OFQD46PhlixW7lRCNawgeyd-8-kvhSUN3diXdzxpwuWr_JEnpzsguPdGRRrmRMAIayeHacHJrKwln9"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Call to Action -->
+<section class="mt-48 py-32 border-t border-primary/10">
+<div class="text-center max-w-2xl mx-auto">
+<h3 class="text-4xl font-neue font-bold mb-8">Ready to begin?</h3>
+<p class="text-secondary mb-12">Our process is rigorous, but the results are enduring. We currently have one opening for Q4 engagement.</p>
+<button class="bg-primary text-white px-12 py-5 font-bold tracking-widest uppercase text-xs hover:bg-primary-container transition-all">Start the Discovery</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] full-width">
+<div class="w-full pt-32 pb-16 px-8 flex flex-col items-start max-w-[1440px] mx-auto">
+<span class="text-[48px] font-bold tracking-tighter text-[#F2F1EF] leading-none mb-12 font-inter">NUVIXES.</span>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full font-inter uppercase tracking-[0.1em] text-[11px]">
+<div class="flex flex-col gap-4">
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Archive</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Services</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Journal</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Instagram</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">LinkedIn</a>
+</div>
+<div class="md:col-span-2 flex flex-col items-start md:items-end justify-end">
+<p class="text-[#8A8D9F] text-right">© 2024 NUVIXES STUDIO. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

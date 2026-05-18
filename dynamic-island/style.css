@@ -1,0 +1,13 @@
+:root{--pill-bg:rgba(20,20,20,0.72);--accent:#1db954;--muted:#ddd}
+html,body{height:100%;margin:0;font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:transparent}
+.pill{position:fixed;left:50%;top:40px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:var(--pill-bg);backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(0,0,0,0.45);color:var(--muted);min-width:220px}
+.icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);font-size:18px}
+.badge{min-width:20px;height:20px;border-radius:999px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;padding:0 6px}
+.content{flex:1;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.controls{display:flex;gap:6px}
+.btn{background:transparent;border:none;color:var(--muted);font-size:16px;padding:6px;border-radius:6px;cursor:pointer}
+.btn:hover{background:rgba(255,255,255,0.03)}
+.debug{position:fixed;left:20px;bottom:20px;display:flex;gap:8px}
+.playing{color:var(--accent)}
+.pulse{animation:pulse 1s infinite alternate}
+@keyframes pulse{to{transform:scale(1.08);filter:brightness(1.08)}}

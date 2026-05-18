@@ -1,0 +1,2 @@
+src/app/journal/page.tsx(116,16): error TS2304: Cannot find name 'Button'.
+src/app/journal/page.tsx(116,92): error TS2304: Cannot find name 'Button'.

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#151938",
+                    "secondary-fixed": "#dfe0ff",
+                    "surface-dim": "#dbdad8",
+                    "surface-container-low": "#f4f3f1",
+                    "secondary-fixed-dim": "#c1c4ec",
+                    "primary-container": "#1e2030",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#dfe1f5",
+                    "on-background": "#1a1c1b",
+                    "on-surface": "#1a1c1b",
+                    "surface-variant": "#e3e2e0",
+                    "on-secondary-fixed-variant": "#404466",
+                    "on-primary-container": "#86879b",
+                    "surface-container-high": "#e9e8e6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#575b7e",
+                    "primary": "#070918",
+                    "primary-fixed": "#e1e1f7",
+                    "surface": "#faf9f7",
+                    "on-tertiary-container": "#85889a",
+                    "on-primary-fixed-variant": "#444657",
+                    "outline-variant": "#c7c5cd",
+                    "secondary-container": "#d1d4fd",
+                    "inverse-on-surface": "#f2f1ef",
+                    "tertiary": "#070a18",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c4c5da",
+                    "outline": "#77767d",
+                    "primary-fixed-dim": "#c4c5da",
+                    "on-tertiary-fixed": "#171b29",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#434656",
+                    "on-primary-fixed": "#181a2a",
+                    "background": "#faf9f7",
+                    "surface-bright": "#faf9f7",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2f3130",
+                    "surface-container": "#efeeec",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c3c5d9",
+                    "secondary": "#585c7f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"],
+                    "inter": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @font-face {
+            font-family: 'Neue_Montreal';
+            src: local('Helvetica Neue'), local('Arial'), sans-serif;
+        }
+        body {
+            background-color: #F2F1EF;
+            color: #1E2030;
+            font-family: 'Neue_Montreal', 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kerning-tight { letter-spacing: -0.02em; }
+        .kerning-loose { letter-spacing: 0.1em; }
+        
+        /* Cropping the logo from the brand sheet placeholder */
+        .brand-logo-container {
+            width: 140px;
+            height: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+        .brand-logo-img {
+            position: absolute;
+            width: 800%; /* Scale to fit the specific logo from sheet */
+            top: -3.5%;
+            left: -2.3%;
+        }
+        .brand-logo-footer {
+            width: 320px;
+            height: 70px;
+            overflow: hidden;
+            position: relative;
+        }
+        .brand-logo-footer-img {
+            position: absolute;
+            width: 600%;
+            top: -3%;
+            left: -1.5%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-primary-container">
+<header class="bg-[#F2F1EF] dark:bg-[#1E2030] docked full-width top-0 z-50 transition-all duration-300">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto font-inter tracking-[-0.02em] font-medium">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1E2030] dark:text-[#F2F1EF] hover:opacity-70 transition-opacity duration-300 cursor-pointer" data-icon="menu">menu</span>
+<div class="brand-logo-container">
+<img alt="NUVIXES" class="brand-logo-img" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ"/>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-[#1E2030] dark:text-[#F2F1EF] border-b-2 border-[#1E2030] dark:border-[#F2F1EF] hover:opacity-70 transition-opacity duration-300" href="#">Work</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Services</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Process</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</div>
+<div class="flex items-center">
+<button class="text-[#1E2030] dark:text-[#F2F1EF] text-[11px] font-bold tracking-[0.1em] uppercase hover:opacity-70 transition-opacity duration-300 active:scale-95 duration-200 border border-[#1E2030]/20 px-6 py-2">
+                    CONTACT
+                </button>
+</div>
+</nav>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="max-w-[1200px] mx-auto px-12 pt-32 pb-24">
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 md:col-span-8 lg:col-span-7">
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary mb-6 block">Portfolio / 2024</span>
+<h1 class="text-[56px] leading-[1.1] kerning-tight font-bold text-primary mb-12">
+                        Archival quality design for the modern era.
+                    </h1>
+<p class="text-[20px] leading-relaxed text-secondary-container max-w-[500px]">
+                        A curation of selected works defining visual identities through restraint, precision, and architectural balance.
+                    </p>
+</div>
+<div class="hidden lg:col-span-5 lg:flex items-end justify-end">
+<div class="w-1 h-32 bg-primary"></div>
+</div>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="max-w-[1200px] mx-auto px-12 pb-48">
+<div class="grid grid-cols-12 gap-y-32 gap-x-12">
+<!-- Project 01 -->
+<div class="col-span-12 group cursor-pointer">
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 md:col-span-8 overflow-hidden bg-surface-container">
+<img alt="Minimalist Architecture" class="w-full h-[600px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuYeWLgTHzbYztBdJzY5fhymcDOTuQdudLywV6lkERoo87A3YZuoyHpfj2-034DhgcG9vcgN2ZC696FAB0icen2FuCG82QK-09SnZvEhaOKVrkKGaHnLQ7IB9eN1r0NYEw_gAx6xXgr5PtnWsZyX-EXSFVcli6imaRE-bDMPrF6zJ9N6EgS458lydAiuKj_2OonWdBUkqV7hETVy_pjHF_X8Vuxmz5RjperJdH1RAKY39r4Sv21vE3OH386wS1o2VMRoAWJYACVX5c"/>
+</div>
+<div class="col-span-12 md:col-span-4 flex flex-col justify-end pb-4">
+<div class="flex items-center gap-4 mb-6">
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">01 / Identity</span>
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">2024</span>
+</div>
+<h2 class="text-3xl font-bold text-primary mb-4">LUMINA STUDIO</h2>
+<p class="text-sm text-secondary leading-relaxed mb-8">
+                                Redefining visual language for an architectural collective focused on sustainable urban monoliths.
+                            </p>
+<div class="h-[1px] w-full bg-primary-container/10"></div>
+</div>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="col-span-12 md:col-span-6 group cursor-pointer">
+<div class="overflow-hidden bg-surface-container mb-8">
+<img alt="Abstract Visual" class="w-full h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmTwlm6LbeN63i_nDGqw8Edu8PFVxO2y0ZyzdyRvaOwiKkm8pk3ccnlQKyvs334v8PV5cqkKKdX9cU_01erfk0pcyVrW30-V_DLnM0YcyEgEZuadyeFK1HpYX7Bmm-dFY9spFwo1P48u-sou_7FDQ3IsWrQuimc0OmUFtUCGXS24Xub80YEDwtZd11PCpBdr3cNApCePGQliGCjZeyzhNWRoqHTVQFpXH-FSxb06ckZXNzhD34wfACHykzIt_bTer6eFblrQIrU6YA"/>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">02 / Digital Archival</span>
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">2023</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-2">AEON SYSTEMS</h3>
+<p class="text-sm text-secondary max-w-[320px]">
+                        A digital ecosystem designed for institutional knowledge management and archival preservation.
+                    </p>
+</div>
+<!-- Project 03 -->
+<div class="col-span-12 md:col-span-6 group cursor-pointer md:mt-24">
+<div class="overflow-hidden bg-surface-container mb-8">
+<img alt="Office Minimal" class="w-full h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRH_e8BFvDuThv_siZ2kIEfqSibdD-RI_3x8nlaul18io2yslx7q9UtCz2WQUxz82X3jkOsREXLptSf-wQ-VvBIV40Io_OiL95K1CshK4tRwm5yFyfCxRqNh7ThRUvX-dhrjfmkfaVTJGd5uK_mS9svVOUPzkQPP0P_pacePK_BnKD7V6ONWsNErXz7wAgmEB2bRI7qCgWzjPlRN3LTDkAhmHvcu9Bc7TYolHKz_Spjau19tJLhVQSY16PXs9QMoaBf05ZEgS1yOyQ"/>
+</div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">03 / Publication</span>
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">2023</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-2">NOX JOURNAL</h3>
+<p class="text-sm text-secondary max-w-[320px]">
+                        Curating the silent intersections between technology and traditional craft in quarterly print.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Disciplines -->
+<section class="bg-surface-container-low py-48">
+<div class="max-w-[1200px] mx-auto px-12 grid grid-cols-12 gap-8">
+<div class="col-span-12 md:col-span-5">
+<h2 class="text-4xl font-bold text-primary mb-12">Our Disciplines</h2>
+<ul class="space-y-6">
+<li class="flex items-center gap-6 group">
+<span class="text-[11px] font-bold text-secondary">01</span>
+<span class="text-xl font-medium group-hover:translate-x-2 transition-transform duration-300">Identity Design</span>
+</li>
+<li class="flex items-center gap-6 group border-t border-outline-variant/20 pt-6">
+<span class="text-[11px] font-bold text-secondary">02</span>
+<span class="text-xl font-medium group-hover:translate-x-2 transition-transform duration-300">Creative Strategy</span>
+</li>
+<li class="flex items-center gap-6 group border-t border-outline-variant/20 pt-6">
+<span class="text-[11px] font-bold text-secondary">03</span>
+<span class="text-xl font-medium group-hover:translate-x-2 transition-transform duration-300">Digital Experience</span>
+</li>
+<li class="flex items-center gap-6 group border-t border-outline-variant/20 pt-6">
+<span class="text-[11px] font-bold text-secondary">04</span>
+<span class="text-xl font-medium group-hover:translate-x-2 transition-transform duration-300">Editorial Systems</span>
+</li>
+</ul>
+</div>
+<div class="hidden md:block col-span-1"></div>
+<div class="col-span-12 md:col-span-6 flex flex-col justify-center">
+<p class="text-2xl leading-tight text-primary-container italic font-light kerning-tight mb-8">
+                        "Design is not the decoration of a surface, but the intentional curation of space, time, and focus."
+                    </p>
+<a class="inline-flex items-center gap-4 text-sm font-bold uppercase tracking-[0.15em] hover:opacity-70 transition-opacity" href="#">
+                        View all services <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="py-48 max-w-[1200px] mx-auto px-12 text-center">
+<span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary mb-12 block">Inquiries</span>
+<h2 class="text-[56px] kerning-tight font-bold text-primary mb-16 leading-none">Ready to define your legacy?</h2>
+<div class="flex flex-col md:flex-row justify-center gap-6 items-center">
+<button class="bg-primary text-on-primary px-12 py-5 text-sm font-bold uppercase tracking-widest rounded-sm hover:opacity-90 transition-all">
+                    Start a project
+                </button>
+<button class="border border-primary text-primary px-12 py-5 text-sm font-bold uppercase tracking-widest rounded-sm hover:bg-primary-container hover:text-on-primary transition-all">
+                    Download Portfolio
+                </button>
+</div>
+</section>
+</main>
+<footer class="bg-[#1E2030] dark:bg-[#070918] full-width w-full pt-32 pb-16 px-8 flex flex-col items-start font-inter uppercase tracking-[0.1em] text-[11px]">
+<div class="max-w-[1440px] mx-auto w-full">
+<div class="brand-logo-footer mb-12">
+<img alt="NUVIXES" class="brand-logo-footer-img grayscale invert brightness-200" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 w-full gap-12">
+<div class="flex flex-wrap gap-8">
+<a class="text-[#F2F1EF] underline decoration-1 hover:text-[#F2F1EF] transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">SERVICES</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">JOURNAL</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">INSTAGRAM</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">LINKEDIN</a>
+</div>
+<div class="md:text-right">
+<p class="text-[#8A8D9F]">© 2024 NUVIXES STUDIO. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

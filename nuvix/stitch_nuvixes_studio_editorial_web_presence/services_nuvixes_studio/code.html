@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Neue_Montreal';
+            src: url('https://fonts.cdnfonts.com/css/neue-montreal');
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Neue_Montreal', sans-serif;
+            background-color: #F2F1EF;
+            color: #1E2030;
+        }
+        .monolith-text {
+            letter-spacing: -0.02em;
+        }
+        .label-sm {
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+        }
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#151938",
+                    "secondary-fixed": "#dfe0ff",
+                    "surface-dim": "#dbdad8",
+                    "surface-container-low": "#f4f3f1",
+                    "secondary-fixed-dim": "#c1c4ec",
+                    "primary-container": "#1e2030",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#dfe1f5",
+                    "on-background": "#1a1c1b",
+                    "on-surface": "#1a1c1b",
+                    "surface-variant": "#e3e2e0",
+                    "on-secondary-fixed-variant": "#404466",
+                    "on-primary-container": "#86879b",
+                    "surface-container-high": "#e9e8e6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#575b7e",
+                    "primary": "#070918",
+                    "primary-fixed": "#e1e1f7",
+                    "surface": "#faf9f7",
+                    "on-tertiary-container": "#85889a",
+                    "on-primary-fixed-variant": "#444657",
+                    "outline-variant": "#c7c5cd",
+                    "secondary-container": "#d1d4fd",
+                    "inverse-on-surface": "#f2f1ef",
+                    "tertiary": "#070a18",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c4c5da",
+                    "outline": "#77767d",
+                    "primary-fixed-dim": "#c4c5da",
+                    "on-tertiary-fixed": "#171b29",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#434656",
+                    "on-primary-fixed": "#181a2a",
+                    "background": "#faf9f7",
+                    "surface-tint": "#5c5d70",
+                    "on-surface-variant": "#46464c",
+                    "tertiary-container": "#1d212f",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#faf9f7",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2f3130",
+                    "surface-container": "#efeeec",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c3c5d9",
+                    "secondary": "#585c7f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter", "sans-serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed-dim selection:text-primary">
+<!-- TopAppBar -->
+<header class="bg-[#F2F1EF] dark:bg-[#1E2030] text-[#1E2030] dark:text-[#F2F1EF] font-inter tracking-[-0.02em] font-medium docked full-width top-0 z-50 tonal-shift-bg flat no-shadow sticky">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-2xl hover:opacity-70 transition-opacity duration-300 cursor-pointer active:scale-95">menu</span>
+<a class="flex items-center gap-2 group" href="#">
+<img alt="Nuvixes Logo" class="h-6 w-auto object-contain transition-opacity duration-300 group-hover:opacity-70" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ"/>
+<span class="text-xl font-bold tracking-tighter text-[#1E2030] dark:text-[#F2F1EF] uppercase sr-only">NUVIXES</span>
+</a>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Work</a>
+<a class="text-[#1E2030] dark:text-[#F2F1EF] border-b-2 border-[#1E2030] dark:border-[#F2F1EF] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Services</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Process</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</nav>
+<button class="px-6 py-2 border border-[#1E2030] text-[#1E2030] dark:border-[#F2F1EF] dark:text-[#F2F1EF] text-[11px] font-bold uppercase tracking-[0.15em] hover:opacity-70 active:scale-95 transition-all duration-300">
+            CONTACT
+        </button>
+</div>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="max-w-[1200px] mx-auto px-12 py-24 md:py-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-8">
+<span class="label-sm text-[#8A8D9F] uppercase mb-6 block">Capabilities</span>
+<h1 class="text-5xl md:text-7xl monolith-text font-black text-primary leading-none mb-12">
+                    WE BUILD DIGITAL <br/> ARCHITECTURE.
+                </h1>
+<p class="text-xl md:text-2xl text-secondary max-w-2xl leading-relaxed">
+                    Moving beyond standard templates into archival-quality design. Our services are tailored for those who value longevity over trends.
+                </p>
+</div>
+<div class="md:col-span-4 hidden md:block">
+<div class="h-[1px] w-full bg-outline-variant/30 mb-8"></div>
+<div class="flex justify-between text-xs text-[#8A8D9F]">
+<span>REF. 2024</span>
+<span>04 SERVICES</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="max-w-[1200px] mx-auto px-12 pb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1E2030]/10 overflow-hidden">
+<!-- Service 01: Landing Pages -->
+<div class="bg-surface-container-lowest p-12 md:p-16 flex flex-col justify-between group transition-colors duration-500 hover:bg-surface-container-low">
+<div>
+<div class="flex justify-between items-start mb-16">
+<span class="text-xs font-mono text-[#8A8D9F]">01 / 04</span>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">bolt</span>
+</div>
+<h3 class="text-3xl font-bold monolith-text mb-6">Landing Pages</h3>
+<p class="text-secondary leading-relaxed mb-12">High-performance single destinations designed for conversion through narrative tension and visual clarity. We treat every landing page as a high-stakes entry point.</p>
+<div class="space-y-8">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">Who it's for</h4>
+<p class="text-sm font-medium">Product launches, seasonal campaigns, and focused lead generation for luxury brands.</p>
+</div>
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">What is included</h4>
+<ul class="text-sm space-y-2">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Copy-integrated Design</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Micro-interactions</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Conversion Audit</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant/20 flex justify-between items-center">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-1 uppercase">Outcome</h4>
+<p class="text-xs font-bold uppercase tracking-widest">Maximum Signal</p>
+</div>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service 02: Business Websites -->
+<div class="bg-surface-container-lowest p-12 md:p-16 flex flex-col justify-between group transition-colors duration-500 hover:bg-surface-container-low">
+<div>
+<div class="flex justify-between items-start mb-16">
+<span class="text-xs font-mono text-[#8A8D9F]">02 / 04</span>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">corporate_fare</span>
+</div>
+<h3 class="text-3xl font-bold monolith-text mb-6">Business Websites</h3>
+<p class="text-secondary leading-relaxed mb-12">Enduring digital identities for established firms. We translate corporate values into a structured, authoritative web presence that commands respect.</p>
+<div class="space-y-8">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">Who it's for</h4>
+<p class="text-sm font-medium">Professional service firms, architects, and established agencies requiring a digital portfolio.</p>
+</div>
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">What is included</h4>
+<ul class="text-sm space-y-2">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Multi-page Architecture</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Custom CMS Setup</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Stakeholder Interviews</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant/20 flex justify-between items-center">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-1 uppercase">Outcome</h4>
+<p class="text-xs font-bold uppercase tracking-widest">Institutional Trust</p>
+</div>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service 03: Startup Launch Sites -->
+<div class="bg-surface-container-lowest p-12 md:p-16 flex flex-col justify-between group transition-colors duration-500 hover:bg-surface-container-low">
+<div>
+<div class="flex justify-between items-start mb-16">
+<span class="text-xs font-mono text-[#8A8D9F]">03 / 04</span>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">rocket_launch</span>
+</div>
+<h3 class="text-3xl font-bold monolith-text mb-6">Startup Launch Sites</h3>
+<p class="text-secondary leading-relaxed mb-12">Dynamic, high-impact sites for rapid growth. We focus on storytelling that attracts both users and investors while maintaining technical scalability.</p>
+<div class="space-y-8">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">Who it's for</h4>
+<p class="text-sm font-medium">Early-stage ventures and tech startups looking to establish market dominance quickly.</p>
+</div>
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">What is included</h4>
+<ul class="text-sm space-y-2">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Scalable Components</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Rapid Prototyping</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> SEO Foundations</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant/20 flex justify-between items-center">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-1 uppercase">Outcome</h4>
+<p class="text-xs font-bold uppercase tracking-widest">Market Authority</p>
+</div>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Service 04: Website Redesign -->
+<div class="bg-surface-container-lowest p-12 md:p-16 flex flex-col justify-between group transition-colors duration-500 hover:bg-surface-container-low">
+<div>
+<div class="flex justify-between items-start mb-16">
+<span class="text-xs font-mono text-[#8A8D9F]">04 / 04</span>
+<span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">history_edu</span>
+</div>
+<h3 class="text-3xl font-bold monolith-text mb-6">Website Redesign</h3>
+<p class="text-secondary leading-relaxed mb-12">Systematic overhaul of legacy digital assets. We strip away the noise to find the core value proposition and rebuild it for the modern era.</p>
+<div class="space-y-8">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">Who it's for</h4>
+<p class="text-sm font-medium">Companies with outdated platforms struggling with high bounce rates or visual fatigue.</p>
+</div>
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-3 uppercase">What is included</h4>
+<ul class="text-sm space-y-2">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> UX/UI Forensics</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Content Refactoring</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary"></span> Visual Modernization</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-outline-variant/20 flex justify-between items-center">
+<div>
+<h4 class="label-sm text-[#8A8D9F] mb-1 uppercase">Outcome</h4>
+<p class="text-xs font-bold uppercase tracking-widest">Digital Rebirth</p>
+</div>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section with Image -->
+<section class="max-w-[1200px] mx-auto px-12 pb-32">
+<div class="relative bg-primary-container h-[600px] overflow-hidden flex items-center px-12 md:px-24">
+<div class="absolute inset-0 opacity-40">
+<img alt="monochrome interior of a brutalist concrete office with dramatic sunlight streaming through large windows creating geometric shadows" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAymmnAzlvIPhZIo01zE5viegm2_NYXp3ZczQHLRWcKeLPGYaJF1Vp0xSQlkktjQ5A_ZbW7sC66pETjZ4zVnLDroz5XXsIFzidvbLuC1R4iP5QndgWW-Q1HSTGq4Xyhrn-CA8nUvXtZ0X-KcgT5divX1QU4bAxtUI16elL40GUDJwpl6Vxdd2IQrGkJvLEW3yOv435ESt7aVrw2FDkzOyn7SAYkD6-tjRJrJbf6zd-rPmlJUkcCS2mcSi1QtR5cjzIhAtL5jNTXvg2E"/>
+</div>
+<div class="relative z-10 max-w-xl">
+<span class="label-sm text-on-primary-container uppercase mb-6 block">Inquiry</span>
+<h2 class="text-4xl md:text-5xl font-black text-on-primary monolith-text mb-8">READY TO BUILD SOMETHING PERMANENT?</h2>
+<button class="px-8 py-4 bg-surface text-primary font-bold uppercase tracking-widest text-sm hover:bg-surface-container-high transition-colors">
+                    Book a Strategy Session
+                </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] text-[#F2F1EF] font-inter uppercase tracking-[0.1em] text-[11px] full-width tonal-block-elevation flat no-shadow">
+<div class="w-full pt-32 pb-16 px-8 flex flex-col items-start max-w-[1440px] mx-auto">
+<div class="w-full">
+<a class="text-[48px] font-bold tracking-tighter text-[#F2F1EF] leading-none mb-12 block" href="#">NUVIXES.</a>
+<div class="grid grid-cols-1 md:grid-cols-2 w-full gap-16 md:gap-32 mt-12">
+<div class="max-w-md">
+<p class="text-[#8A8D9F] leading-relaxed mb-12 normal-case font-['Neue_Montreal'] text-sm tracking-normal">
+                        A boutique design laboratory specializing in digital monoliths. We do not design for the month; we design for the decade.
+                    </p>
+<div class="opacity-100">
+                        © 2024 NUVIXES STUDIO. ALL RIGHTS RESERVED.
+                    </div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-6">
+<span class="text-[#8A8D9F] mb-2">Navigation</span>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="text-[#F2F1EF] underline decoration-1 hover:text-[#F2F1EF] transition-colors duration-300" href="#">SERVICES</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">JOURNAL</a>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-[#8A8D9F] mb-2">Social</span>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">INSTAGRAM</a>
+<a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">LINKEDIN</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

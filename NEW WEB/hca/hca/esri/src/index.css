@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary: #007ac2;
+  /* Vibrant Esri Blue */
+  --color-primary-dark: #005e95;
+  /* Original Esri Blue */
+  --color-primary-light: #00b0ff;
+  /* Bright Accent */
+
+  --color-secondary: #2b2b2b;
+  /* Slate Dark */
+  --color-secondary-dark: #1a1a1a;
+  --color-secondary-light: #696969;
+  /* Crisp Gray */
+
+  --color-bg-base: #f8f9fa;
+  /* Off-white dashboard bg */
+  --color-bg-soft: #f3f4f6;
+  /* Panel bg */
+  --color-border-subtle: #e5e7eb;
+  /* Sharp gray borders */
+
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+
+  --animate-fade-in: fadeIn 0.3s ease-out forwards;
+  --animate-fade-in-up: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-in: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  body {
+    @apply bg-bg-base text-secondary font-sans antialiased selection:bg-primary/20 selection:text-primary-dark min-h-screen overflow-x-hidden;
+  }
+
+  /* Form Element Resets */
+  input[type="range"] {
+    @apply appearance-none bg-transparent;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-primary cursor-pointer border-2 border-white shadow-sm transition-transform hover:scale-110 relative z-10;
+    margin-top: -6px;
+    /* center thumb */
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-primary cursor-pointer border-2 border-white shadow-sm transition-transform hover:scale-110 relative z-10;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    @apply w-full h-1 bg-border-subtle rounded-full cursor-pointer;
+  }
+
+  input[type="range"]::-moz-range-track {
+    @apply w-full h-1 bg-border-subtle rounded-full cursor-pointer;
+  }
+}
+
+@layer components {
+
+  /* Sharp, Esri-style input panels */
+  .dashboard-panel {
+    @apply bg-white border border-border-subtle rounded-lg shadow-xs transition-shadow duration-200 hover:shadow-sm;
+  }
+
+  /* Geometric, data-centric inputs */
+  .esri-input {
+    @apply w-full bg-white px-4 py-2.5 border border-border-subtle rounded text-sm text-secondary font-medium transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-secondary-light/60;
+  }
+
+  /* Minimalist buttons */
+  .esri-button {
+    @apply px-6 py-2.5 rounded bg-primary text-white font-sans font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 hover:bg-primary-dark active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-xs hover:shadow-sm;
+  }
+
+  .esri-button-secondary {
+    @apply px-4 py-2 rounded bg-bg-soft text-secondary font-sans font-semibold text-xs border border-border-subtle transition-all duration-200 flex items-center justify-center gap-2 hover:bg-border-subtle hover:text-secondary-dark active:scale-[0.98];
+  }
+
+  /* Data presentation utilities */
+  .data-label {
+    @apply block text-secondary font-semibold text-[10px] uppercase tracking-wider mb-1;
+  }
+
+  .data-value {
+    @apply text-secondary font-medium text-sm;
+  }
+
+  .section-header {
+    @apply text-lg font-display font-semibold text-secondary tracking-tight border-b border-border-subtle pb-2 mb-4;
+  }
+}

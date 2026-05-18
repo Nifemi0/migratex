@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Nuvixes Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "primary": "#070918",
+                        "secondary-fixed": "#e1dfff",
+                        "secondary-fixed-dim": "#c1c1ff",
+                        "secondary": "#585991",
+                        "inverse-surface": "#2f3130",
+                        "tertiary-fixed": "#f2e1be",
+                        "surface-container-highest": "#e3e2e0",
+                        "on-tertiary-fixed": "#231a06",
+                        "outline-variant": "#c7c5cd",
+                        "tertiary-fixed-dim": "#d5c5a4",
+                        "on-tertiary-fixed-variant": "#51452c",
+                        "on-tertiary-container": "#958769",
+                        "on-error": "#ffffff",
+                        "surface-container": "#efeeec",
+                        "tertiary-container": "#29200a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dbdad8",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#bebefd",
+                        "on-background": "#1a1c1b",
+                        "inverse-primary": "#c4c5da",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#46464c",
+                        "on-primary-fixed": "#181a2a",
+                        "inverse-on-surface": "#f2f1ef",
+                        "surface-tint": "#5c5d70",
+                        "primary-container": "#1e2030",
+                        "background": "#faf9f7",
+                        "on-secondary-fixed-variant": "#404177",
+                        "on-primary-fixed-variant": "#444657",
+                        "tertiary": "#100900",
+                        "surface-bright": "#faf9f7",
+                        "surface-container-high": "#e9e8e6",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e1e1f7",
+                        "on-secondary-fixed": "#141449",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e3e2e0",
+                        "primary-fixed-dim": "#c4c5da",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-container": "#4a4b82",
+                        "surface": "#faf9f7",
+                        "outline": "#77767d",
+                        "on-primary-container": "#86879b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f7; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-header { background: rgba(242, 241, 239, 0.7); backdrop-filter: blur(24px); }
+        .service-hover:hover .hover-bar { width: 100%; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface selection:bg-secondary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-header">
+<div class="flex justify-between items-center w-full px-6 md:px-12 py-6 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="architecture">architecture</span>
+<img alt="Nuvixes Studio" class="h-6 object-contain" data-alt="Official architectural logo for Nuvixes Studio, minimalist geometric design in deep navy blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoK5xQIO445LbWcwOlA8RxBTqDFoK05xFAFr7p3sJh8xY0jk4rBpg1SWSoKZl88xGxAnoB5qLSNXuNH3gVmYCSDjRWrIXfxcbaUsJ0Zo5kOY9CeedP8kirtw77P__BSybroaqFRnWbnmv3n6d_V5qTo7qz4JGT531j7RTqyUExJSs7YNrDp1AAXOCw4v2qTTfC7JK9rFsoKDUC_lp9KTFnWdA0dygKZlaHMAqSU519ahn2S-zRmG5w77-CtTHGJOs_yF7TuFpFOdZC"/>
+</div>
+<nav class="hidden md:flex gap-12 items-center font-manrope tracking-[0.05em] uppercase font-medium text-xs">
+<a class="text-[#424379] opacity-80 hover:opacity-100 hover:text-[#1E2030] transition-all duration-300" href="#">The Work</a>
+<a class="text-[#1E2030] border-b-2 border-[#1E2030] pb-1 transition-all duration-300" href="#">Services</a>
+<a class="text-[#424379] opacity-80 hover:opacity-100 hover:text-[#1E2030] transition-all duration-300" href="#">Journal</a>
+<a class="text-[#424379] opacity-80 hover:opacity-100 hover:text-[#1E2030] transition-all duration-300" href="#">Studio</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 text-[10px] uppercase tracking-[0.15em] font-bold">
+                Contact
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="px-6 md:px-12 max-w-[1920px] mx-auto mb-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+<div class="md:col-span-8">
+<span class="text-secondary font-manrope uppercase tracking-[0.3em] text-[10px] mb-6 block">Capabilities &amp; Process</span>
+<h1 class="text-5xl md:text-8xl font-bold text-primary tracking-tight leading-[0.95]">
+                        Defining the <br/>Quiet Monolith.
+                    </h1>
+</div>
+<div class="md:col-span-4 pb-4">
+<p class="text-on-surface-variant max-w-sm text-lg leading-relaxed font-light">
+                        We reject the ephemeral. Nuvixes Studio designs for structural permanence, crafting digital experiences that resonate through architectural precision.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Main Visual -->
+<section class="px-6 md:px-12 max-w-[1920px] mx-auto mb-48">
+<div class="relative h-[530px] w-full overflow-hidden">
+<img class="w-full h-full object-cover grayscale brightness-90" data-alt="Dramatic architectural perspective of a brutalist concrete building with clean lines and sharp shadows under a clear sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_cuDqY6552_j3NmAAX5_fnE5JmFmA7KLVM-4T8IM16k8Kq8mnSp1-6H0jW6AKyHtOtkRxjtm06zGNf8fyTKLSgERw4BnLkDiN79TEv5NEeTqQIRT7J1pg7XnG1n1fNbfdfB_bFIDzlqftiDa34JyQF9REivPN1RS1zHnMvNvEhEHTP8RUTB2vh2Nz8L8tfP_NE5PLge5Fx4Swgg1hxkvJAh8kvsUurfhFP6hu5C_uTxZqkWy6pqLGHV4HguJ1IQkrUB-WARrAOvr_"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+<div class="absolute bottom-12 right-12 bg-white p-8 max-w-xs">
+<p class="text-xs uppercase tracking-widest text-secondary mb-2">Philosophy 01</p>
+<p class="text-sm font-medium leading-relaxed">Form follows intent. Every pixel is a structural decision, weighted with the gravity of legacy.</p>
+</div>
+</div>
+</section>
+<!-- Services Bento Grid -->
+<section class="px-6 md:px-12 max-w-[1920px] mx-auto mb-48">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/30">
+<!-- Service 1: Structural Monoliths -->
+<div class="bg-surface p-12 md:p-24 flex flex-col justify-between group service-hover transition-colors duration-500 hover:bg-surface-container-low relative">
+<div class="absolute top-0 left-0 h-1 w-0 bg-secondary transition-all duration-700 hover-bar"></div>
+<div>
+<span class="text-secondary font-bold text-4xl font-headline mb-12 block opacity-20 group-hover:opacity-100 transition-opacity">01</span>
+<h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Structural Monoliths</h2>
+<p class="text-secondary mb-8 uppercase tracking-widest text-xs font-bold">(Landing Pages)</p>
+<p class="text-on-surface-variant max-w-md mb-12 leading-relaxed">
+                            A focused digital experience built on a singular, powerful premise. We strip away the noise to create a high-conversion monolith that commands attention.
+                        </p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Outcome</p>
+<p class="text-sm font-semibold text-primary">Unrivaled narrative clarity and performance-driven architectural depth.</p>
+</div>
+</div>
+<!-- Service 2: Heritage Curation -->
+<div class="bg-surface-container-low p-12 md:p-24 flex flex-col justify-between group service-hover transition-colors duration-500 hover:bg-surface relative">
+<div class="absolute top-0 left-0 h-1 w-0 bg-secondary transition-all duration-700 hover-bar"></div>
+<div>
+<span class="text-secondary font-bold text-4xl font-headline mb-12 block opacity-20 group-hover:opacity-100 transition-opacity">02</span>
+<h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Heritage Curation</h2>
+<p class="text-secondary mb-8 uppercase tracking-widest text-xs font-bold">(Website Refresh)</p>
+<p class="text-on-surface-variant max-w-md mb-12 leading-relaxed">
+                            Restoring the integrity of established brands. We audit your existing presence and rebuild it through a lens of contemporary editorial grace.
+                        </p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Outcome</p>
+<p class="text-sm font-semibold text-primary">A revitalized digital footprint that honors brand history while leading the market.</p>
+</div>
+</div>
+<!-- Service 3: Speculative Planning -->
+<div class="bg-surface-container-high p-12 md:p-24 flex flex-col justify-between group service-hover transition-colors duration-500 hover:bg-surface relative">
+<div class="absolute top-0 left-0 h-1 w-0 bg-secondary transition-all duration-700 hover-bar"></div>
+<div>
+<span class="text-secondary font-bold text-4xl font-headline mb-12 block opacity-20 group-hover:opacity-100 transition-opacity">03</span>
+<h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Speculative Planning</h2>
+<p class="text-secondary mb-8 uppercase tracking-widest text-xs font-bold">(Brand-led Design)</p>
+<p class="text-on-surface-variant max-w-md mb-12 leading-relaxed">
+                            Strategic design for tomorrow. We define the visual linguistics and interaction patterns that will anchor your brand in the future digital landscape.
+                        </p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Outcome</p>
+<p class="text-sm font-semibold text-primary">A robust design system and strategic blueprint for long-term scalability.</p>
+</div>
+</div>
+<!-- Service 4: Material Research -->
+<div class="bg-primary-container p-12 md:p-24 flex flex-col justify-between group service-hover relative overflow-hidden">
+<div class="absolute top-0 left-0 h-1 w-0 bg-secondary-container transition-all duration-700 hover-bar"></div>
+<div class="relative z-10">
+<span class="text-secondary-container font-bold text-4xl font-headline mb-12 block opacity-40">04</span>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Material Research</h2>
+<p class="text-secondary-container mb-8 uppercase tracking-widest text-xs font-bold">(R&amp;D &amp; Motion)</p>
+<p class="text-slate-300 max-w-md mb-12 leading-relaxed">
+                            The laboratory of the studio. Exploring the boundaries of creative technology, custom typography, and the physics of digital motion.
+                        </p>
+</div>
+<div class="relative z-10">
+<p class="text-[10px] uppercase tracking-widest text-secondary-container mb-2">Outcome</p>
+<p class="text-sm font-semibold text-white">Bespoke technical solutions that differentiate your interface from standard patterns.</p>
+</div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- Engagement Section -->
+<section class="px-6 md:px-12 max-w-[1920px] mx-auto py-24 mb-48 bg-surface-container-low">
+<div class="max-w-4xl mx-auto text-center">
+<h3 class="text-4xl md:text-6xl font-bold text-primary mb-12 tracking-tight">Ready to build the monolith?</h3>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary text-on-primary px-12 py-5 text-sm uppercase tracking-[0.2em] font-bold hover:scale-105 transition-transform">
+                        Start a Project
+                    </button>
+<button class="border border-outline px-12 py-5 text-sm uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">
+                        Download Portfolio
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] text-[#F2F1EF] w-full px-12 py-24 flex flex-col md:flex-row justify-between items-end gap-12">
+<div class="w-full md:w-1/2">
+<span class="text-2xl font-black text-white mb-8 block font-manrope">RESONANCE</span>
+<div class="grid grid-cols-2 gap-12 mb-12">
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-6">Nav</h4>
+<ul class="flex flex-col gap-4 font-manrope uppercase tracking-widest text-[10px]">
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">The Work</a></li>
+<li><a class="text-white font-bold transition-colors duration-500" href="#">Services</a></li>
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">Journal</a></li>
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">Studio</a></li>
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-6">Social</h4>
+<ul class="flex flex-col gap-4 font-manrope uppercase tracking-widest text-[10px]">
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">Instagram</a></li>
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">LinkedIn</a></li>
+<li><a class="text-[#424379] hover:text-white transition-colors duration-500" href="#">Behance</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-manrope uppercase tracking-widest text-[10px] md:text-xs text-slate-400 mb-2">
+                © 2024 RESONANCE STUDIO. BUILT ON ARCHITECTURAL INTEGRITY.
+            </p>
+<p class="text-[8px] text-slate-600 tracking-[0.4em] uppercase">All Rights Reserved.</p>
+</div>
+</footer>
+</body></html>

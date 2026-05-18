@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Capital - Nuvixes Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.cdnfonts.com/css/neue-montreal" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#181a2a",
+                        "surface-container-high": "#e9e8e6",
+                        "inverse-surface": "#2f3130",
+                        "surface-bright": "#faf9f7",
+                        "secondary-fixed-dim": "#c1c4ec",
+                        "surface": "#faf9f7",
+                        "secondary-container": "#d1d4fd",
+                        "primary": "#070918",
+                        "on-surface": "#1a1c1b",
+                        "tertiary-container": "#1d212f",
+                        "surface-container-highest": "#e3e2e0",
+                        "outline": "#77767d",
+                        "on-secondary-fixed": "#151938",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#c4c5da",
+                        "primary-container": "#1e2030",
+                        "on-secondary-container": "#575b7e",
+                        "background": "#faf9f7",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#5c5d70",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f4f3f1",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#404466",
+                        "tertiary-fixed": "#dfe1f5",
+                        "secondary-fixed": "#dfe0ff",
+                        "on-tertiary-fixed-variant": "#434656",
+                        "on-tertiary-fixed": "#171b29",
+                        "on-surface-variant": "#46464c",
+                        "on-primary-container": "#86879b",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c7c5cd",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c4c5da",
+                        "inverse-on-surface": "#f2f1ef",
+                        "surface-container": "#efeeec",
+                        "primary-fixed": "#e1e1f7",
+                        "on-primary-fixed-variant": "#444657",
+                        "secondary": "#585c7f",
+                        "tertiary": "#070a18",
+                        "tertiary-fixed-dim": "#c3c5d9",
+                        "surface-variant": "#e3e2e0",
+                        "on-tertiary-container": "#85889a",
+                        "surface-dim": "#dbdad8",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Neue Montreal", "sans-serif"],
+                        "body": ["Neue Montreal", "sans-serif"],
+                        "label": ["Neue Montreal", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Neue Montreal', sans-serif;
+            background-color: #faf9f7;
+        }
+        .editorial-text {
+            max-width: 760px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="bg-[#F2F1EF] dark:bg-[#1E2030] text-[#1E2030] dark:text-[#F2F1EF] font-['Neue_Montreal',sans-serif] tracking-tight uppercase docked full-width top-0 sticky z-50 no-line tonal-stacking flat no shadows">
+<div class="flex justify-between items-center w-full px-8 md:px-16 py-8 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl" data-icon="menu">menu</span>
+<span class="text-2xl font-bold tracking-[-0.02em] text-[#1E2030] dark:text-[#F2F1EF]">NUVIXES</span>
+</div>
+<nav class="hidden md:flex gap-12 text-[11px] font-bold tracking-[0.1em]">
+<a class="text-[#8A8D9F] hover:text-[#2C3050] transition-colors duration-300" href="#">JOURNAL</a>
+<a class="text-[#1E2030] dark:text-[#F2F1EF] font-bold border-b-2 border-[#1E2030] dark:border-[#F2F1EF]" href="#">PROJECTS</a>
+<a class="text-[#8A8D9F] hover:text-[#2C3050] transition-colors duration-300" href="#">SERVICES</a>
+<a class="text-[#8A8D9F] hover:text-[#2C3050] transition-colors duration-300" href="#">ABOUT</a>
+</nav>
+<button class="text-[#1E2030] dark:text-[#F2F1EF] font-bold text-[11px] tracking-widest hover:opacity-80 transition-opacity duration-200">CONTACT</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="w-full px-8 md:px-16 pt-24 pb-36 max-w-[1440px] mx-auto overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-8">
+<p class="text-[11px] tracking-[0.2em] uppercase text-on-primary-container mb-8 font-bold">CASE STUDY / 001</p>
+<h1 class="text-5xl md:text-[5.5rem] leading-[0.95] font-black tracking-[-0.03em] text-primary uppercase">
+                        Lumina <br/> Capital
+                    </h1>
+</div>
+<div class="md:col-span-4 pb-4">
+<p class="text-on-surface-variant text-lg leading-relaxed border-l border-outline-variant pl-8 italic">
+                        Redefining institutional wealth management through an archival, brutalist digital identity.
+                    </p>
+</div>
+</div>
+<div class="mt-24 relative aspect-[21/9] w-full bg-surface-container overflow-hidden">
+<img alt="Modern architectural monolith" class="w-full h-full object-cover grayscale" data-alt="Monolithic skyscraper facade with high-contrast shadows and clean geometric lines against a clear sky, architectural photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfqu5PzJnSKMs5tGP-pRyB7no0ckMuQZnAqLLQDbgrNM0BVPFbRmo-QNbUQosHat7SfOaHG1ExVz4XHZaDbPlOrJvNlVpNauciALuTo7x4uLv_jSTC9ZwrU2k5UEh3-p7hm0l05dQXC0xpF2urEB34EY5aEluSiiN_2mPdVGOT6_IeC_cA-xQzxTZDT0nBrjCSLMDopOzbyaizvjB1Fwxt6F9ibENaB4f6Fs8DOGKZ6V-LiaePt0DNStIeVq3hJZ05eLqN1kdR1j16"/>
+</div>
+</section>
+<!-- Progress Track (Studio Specific) -->
+<div class="w-full h-[2px] bg-primary-container opacity-10">
+<div class="h-full bg-primary w-1/4"></div>
+</div>
+<!-- The Challenge & Solution -->
+<section class="w-full px-8 md:px-16 py-36 max-w-[1440px] mx-auto bg-surface-container-low">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+<div class="md:col-span-3">
+<h2 class="text-[11px] tracking-[0.2em] uppercase text-primary font-black sticky top-32">01 / DISCOVERY</h2>
+</div>
+<div class="md:col-span-9">
+<div class="editorial-text mb-32">
+<h3 class="text-3xl font-medium text-primary mb-12 tracking-tight">The Challenge</h3>
+<p class="text-xl text-on-surface-variant leading-relaxed mb-8">
+                            Lumina Capital approached Nuvixes with a critical tension: their legacy of conservative, high-stakes finance was clashing with a new generation of investors who demanded transparency, modernism, and digital agility. The existing brand felt cluttered, relying on dated financial metaphors and a lack of visual hierarchy.
+                        </p>
+<p class="text-xl text-on-surface-variant leading-relaxed">
+                            The mandate was clear: strip away the noise. Create a digital experience that feels as stable as a stone monolith yet as precise as a Swiss watch.
+                        </p>
+</div>
+<div class="editorial-text">
+<h3 class="text-3xl font-medium text-primary mb-12 tracking-tight">The Solution</h3>
+<p class="text-xl text-on-surface-variant leading-relaxed mb-8">
+                            We implemented a "Curated Monolith" strategy. By utilizing a 12-column asymmetric grid and a strictly limited palette of Primary Navy and Off-White, we mirrored the permanence of archival documents. 
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-16">
+<div>
+<h4 class="text-[11px] tracking-[0.1em] uppercase font-bold text-primary mb-4">TYPOGRAPHY</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Custom treatment of Neue Montreal for dense, authoritative headlines and spacious metadata.</p>
+</div>
+<div>
+<h4 class="text-[11px] tracking-[0.1em] uppercase font-bold text-primary mb-4">TONAL DEPTH</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Replacement of borders with tonal stacking (#F4F3F1 on #FAF9F7) for a sophisticated feel.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Images (Brutalist Alignment) -->
+<section class="w-full px-8 md:px-16 py-36 max-w-[1440px] mx-auto bg-surface">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<div class="md:col-span-7 mb-24">
+<div class="aspect-square bg-surface-container-high overflow-hidden">
+<img alt="Interior office" class="w-full h-full object-cover filter grayscale" data-alt="Interior of a minimalist concrete office space with dramatic lighting from a high window, soft shadows on smooth surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD22Xhd6QUXfAAhKfE5lvxqXX0nRyggwIKJOhnOJSONrOeWidNi6zEE7C03aEN6PWMPRstYamQu4f2m9XFwq5Kq_eYLHoDlnDa5FzE71KvnBm_Hos3lgDMooIoovXKEu3lb67GH8k96TCYWlo6NTIxvQzDXjwagoORCG3ChqhM9d-QnDH8s4XiFBEDTB3PK1J3NnzGvUsf0H8hSUbPgpNEdw7OZUnpmk6fyvZT0c3GBbkSv4m1NGMlIvrIeiBDzxX8nLfEPDQzGR4xl"/>
+</div>
+<p class="text-[10px] tracking-[0.1em] uppercase mt-6 text-outline">FIG 01. ARCHITECTURAL INTERFACE ALIGNMENT</p>
+</div>
+<div class="md:col-start-9 md:col-span-4 mt-32">
+<div class="aspect-[3/4] bg-surface-container-high overflow-hidden">
+<img alt="Luxury detail" class="w-full h-full object-cover filter contrast-125 brightness-75" data-alt="Close-up of a high-end fountain pen resting on textured paper with elegant typography, dark moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2GhgmdoBhb53DCW9BlDtraqO5PJ65KIbe4fPiCofuamB8oNeH9Z_9mAHdv0ovMIa2_AQtuA0X9uK-jahXfEJZMdh6tcGvCtqxCzcD-2l0KUo4bWqhONO2vTpoRgnRoF7KHU2wzsIgv0bE5UzsCjmNJL99qoibkhRxG57I7FTXLOD9mGC0Rxq0zvI7fCTUIIYtwkuFz1MRwSTTUnze5-j-XNvAVXjm5r48egvo7M2vhqhR8ZV4ppfRxn5tP_RwMTTZzPdS79aCNxDP"/>
+</div>
+<p class="text-[10px] tracking-[0.1em] uppercase mt-6 text-outline">FIG 02. TACTILE BRANDING ELEMENTS</p>
+</div>
+<div class="md:col-span-12 mt-12">
+<div class="aspect-[21/9] bg-surface-container-highest overflow-hidden">
+<img alt="Wide modern building" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" data-alt="Exterior view of a brutalist concrete building with clean horizontal lines and glass reflections, dusk lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCigxK8i0BGUtLTkxIZpDcrvK2IVuRuo1JHxZFzPOKhfJ6I-4STbPHdkd4swS8jvu03cdd_khoT2aaFSAiW02sGdU1vdZbEIQCF-maPsVRg3CCIwJ5CuGXTKWhZ2oToQ29HMYEJMLdMi2V0dl55bvuM4-vfF_4gmrGW8-f1j3f-70AswYdU7HeVoWiMGSvhNMGeaz26-v-pK2nHmyFaAcdbzOqNa3R4aOANxYYx3UOizbx99TSpJvT8OyGOkGWnDI7wdcoj9kw32ucj"/>
+</div>
+<p class="text-[10px] tracking-[0.1em] uppercase mt-6 text-outline text-right">FIG 03. THE MONOLITHIC CANVAS</p>
+</div>
+</div>
+</section>
+<!-- Results / Impact -->
+<section class="w-full px-8 md:px-16 py-36 max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 border-t border-outline-variant pt-24">
+<div class="md:col-span-3">
+<h2 class="text-[11px] tracking-[0.2em] uppercase text-primary font-black">02 / OUTCOME</h2>
+</div>
+<div class="md:col-span-9">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-24">
+<div>
+<span class="text-5xl font-black text-primary block mb-4">42%</span>
+<p class="text-[11px] tracking-[0.1em] uppercase font-bold text-on-surface-variant">INCREASE IN RETENTION</p>
+</div>
+<div>
+<span class="text-5xl font-black text-primary block mb-4">$1.2B</span>
+<p class="text-[11px] tracking-[0.1em] uppercase font-bold text-on-surface-variant">AUM ONBOARDED (Q3)</p>
+</div>
+<div>
+<span class="text-5xl font-black text-primary block mb-4">0.2s</span>
+<p class="text-[11px] tracking-[0.1em] uppercase font-bold text-on-surface-variant">LOAD STATE LATENCY</p>
+</div>
+</div>
+<div class="editorial-text">
+<p class="text-2xl text-primary leading-tight font-medium mb-12">
+                            "The transformation of Lumina Capital was not just visual; it was structural. Nuvixes carved out a space that allows our data to speak with authority."
+                        </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-[1px] bg-primary"></div>
+<p class="text-[11px] tracking-[0.1em] uppercase font-bold text-primary">MARCUS VANE, CEO LUMINA</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Next Project Navigation -->
+<section class="w-full bg-primary-container py-48 mt-24">
+<div class="max-w-[1440px] mx-auto px-8 md:px-16 group cursor-pointer">
+<p class="text-[11px] tracking-[0.2em] uppercase text-on-primary-container mb-8 font-bold text-center">NEXT CASE STUDY</p>
+<div class="flex flex-col items-center">
+<h2 class="text-5xl md:text-[6rem] text-on-primary font-black uppercase tracking-tight text-center transition-transform duration-500 group-hover:scale-105">
+                        AETHEL GARDENS
+                    </h2>
+<div class="mt-12 flex items-center gap-6 group-hover:gap-12 transition-all duration-500">
+<span class="text-on-primary-container font-medium tracking-widest text-[13px]">VIEW ARCHIVE</span>
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] text-[#F2F1EF] font-['Neue_Montreal',sans-serif] text-[11px] tracking-[0.1em] uppercase full-width bottom-0 mt-36 background shift to mid navy flat">
+<div class="flex flex-col md:flex-row justify-between items-end w-full px-8 md:px-16 py-24 max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-8 w-full md:w-auto mb-16 md:mb-0">
+<span class="text-[#F2F1EF] font-bold text-2xl tracking-tighter">NUVIXES STUDIO.</span>
+<p class="max-w-xs text-[#8A8D9F] leading-relaxed">BRUTALIST ARCHIVAL DESIGN FOR THE DIGITAL MONOLITH. BASED IN THE VOID, WORKING GLOBALLY.</p>
+<p class="text-[#8A8D9F]">©2024 NUVIXES STUDIO. ARCHIVAL DATA.</p>
+</div>
+<div class="flex flex-col gap-4 text-right w-full md:w-auto">
+<a class="text-[#8A8D9F] hover:text-white transition-colors" href="#">INSTAGRAM</a>
+<a class="text-[#8A8D9F] hover:text-white transition-colors" href="#">LINKEDIN</a>
+<a class="text-[#8A8D9F] hover:text-white transition-colors" href="#">TWITTER</a>
+<a class="text-[#8A8D9F] hover:text-white transition-colors" href="#">SUBSTACK</a>
+</div>
+</div>
+</footer>
+</body></html>

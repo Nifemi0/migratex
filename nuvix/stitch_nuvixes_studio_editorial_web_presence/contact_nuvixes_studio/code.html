@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.cdnfonts.com/css/neue-montreal" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#151938",
+                    "secondary-fixed": "#dfe0ff",
+                    "surface-dim": "#dbdad8",
+                    "surface-container-low": "#f4f3f1",
+                    "secondary-fixed-dim": "#c1c4ec",
+                    "primary-container": "#1e2030",
+                    "surface-container-highest": "#e3e2e0",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#dfe1f5",
+                    "on-background": "#1a1c1b",
+                    "on-surface": "#1a1c1b",
+                    "surface-variant": "#e3e2e0",
+                    "on-secondary-fixed-variant": "#404466",
+                    "on-primary-container": "#86879b",
+                    "surface-container-high": "#e9e8e6",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#575b7e",
+                    "primary": "#070918",
+                    "primary-fixed": "#e1e1f7",
+                    "surface": "#faf9f7",
+                    "on-tertiary-container": "#85889a",
+                    "on-primary-fixed-variant": "#444657",
+                    "outline-variant": "#c7c5cd",
+                    "secondary-container": "#d1d4fd",
+                    "inverse-on-surface": "#f2f1ef",
+                    "tertiary": "#070a18",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c4c5da",
+                    "outline": "#77767d",
+                    "primary-fixed-dim": "#c4c5da",
+                    "on-tertiary-fixed": "#171b29",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#434656",
+                    "on-primary-fixed": "#181a2a",
+                    "background": "#faf9f7",
+                    "surface-tint": "#5c5d70",
+                    "on-surface-variant": "#46464c",
+                    "tertiary-container": "#1d212f",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#faf9f7",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2f3130",
+                    "surface-container": "#efeeec",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c3c5d9",
+                    "secondary": "#585c7f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Neue Montreal", "Inter", "sans-serif"],
+                    "body": ["Neue Montreal", "Inter", "sans-serif"],
+                    "label": ["Neue Montreal", "Inter", "sans-serif"],
+                    "inter": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Neue Montreal', sans-serif;
+            background-color: #F2F1EF;
+        }
+        .input-focus-border:focus {
+            border-bottom-color: #070918 !important;
+            outline: none;
+        }
+        .logo-mask {
+            mask-image: url('{{DATA:IMAGE:IMAGE_3}}');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary selection:bg-primary selection:text-white">
+<!-- TopAppBar -->
+<header class="bg-[#F2F1EF] dark:bg-[#1E2030] text-[#1E2030] dark:text-[#F2F1EF] docked full-width top-0 z-50 flat no-shadow sticky transition-colors duration-300">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto font-inter tracking-[-0.02em] font-medium">
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined hover:opacity-70 transition-opacity duration-300">menu</button>
+<div class="flex items-center gap-3">
+<!-- Using a container for the logo to control scaling from the brand sheet -->
+<div class="h-6 w-32 overflow-hidden relative">
+<img alt="NUVIXES" class="absolute h-[800%] max-w-none left-[-1.5%] top-[-10%]" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ" style="clip-path: inset(1.2% 67.5% 86% 2%); filter: brightness(0) saturate(100%) invert(8%) sepia(19%) saturate(1637%) hue-rotate(193deg) brightness(91%) contrast(96%);"/>
+</div>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Work</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Services</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Process</a>
+</div>
+<button class="text-[#1E2030] dark:text-[#F2F1EF] uppercase tracking-[0.1em] text-[11px] font-bold hover:opacity-70 transition-opacity duration-300">CONTACT</button>
+</nav>
+</header>
+<main class="max-w-[1200px] mx-auto px-12 pt-32 pb-48">
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Headline & Info -->
+<div class="col-span-12 lg:col-span-5 flex flex-col justify-between mb-24 lg:mb-0">
+<div>
+<span class="text-[11px] font-bold tracking-[0.1em] text-primary uppercase mb-6 block">Inquiry</span>
+<h1 class="text-[3.5rem] leading-[1.1] font-bold tracking-[-0.02em] text-primary-container max-w-sm">
+                    Start a Project.
+                </h1>
+<p class="mt-8 text-xl text-secondary max-w-xs leading-relaxed">
+                    Let's build something credible. We specialize in high-fidelity design systems and archival digital experiences.
+                </p>
+</div>
+<div class="mt-24 lg:mt-0">
+<p class="text-[11px] font-bold tracking-[0.1em] text-outline uppercase mb-4">Fallback Contact</p>
+<a class="text-2xl font-medium text-primary-container hover:opacity-70 transition-opacity" href="mailto:hello@nuvixes.studio">
+                    hello@nuvixes.studio
+                </a>
+</div>
+</div>
+<!-- Right Column: Form -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest p-12 lg:p-20 shadow-[0_24px_80px_rgba(30,32,48,0.06)]">
+<form action="#" class="space-y-12" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+<!-- Name Field -->
+<div class="relative">
+<label class="text-[11px] font-bold tracking-[0.1em] text-outline uppercase block mb-2" for="name">Name</label>
+<input class="w-full bg-transparent border-0 border-b border-[#1E2030]/15 py-4 px-0 text-primary-container font-medium placeholder:text-outline-variant focus:ring-0 input-focus-border transition-all" id="name" name="name" placeholder="John Doe" type="text"/>
+</div>
+<!-- Email Field -->
+<div class="relative">
+<label class="text-[11px] font-bold tracking-[0.1em] text-outline uppercase block mb-2" for="email">Email</label>
+<input class="w-full bg-transparent border-0 border-b border-[#1E2030]/15 py-4 px-0 text-primary-container font-medium placeholder:text-outline-variant focus:ring-0 input-focus-border transition-all" id="email" name="email" placeholder="john@studio.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+<!-- Project Type -->
+<div class="relative">
+<label class="text-[11px] font-bold tracking-[0.1em] text-outline uppercase block mb-2" for="type">Project Type</label>
+<select class="w-full bg-transparent border-0 border-b border-[#1E2030]/15 py-4 px-0 text-primary-container font-medium focus:ring-0 input-focus-border transition-all appearance-none cursor-pointer" id="type" name="type">
+<option disabled="" selected="" value="">Select service</option>
+<option value="branding">Brand Identity</option>
+<option value="uiux">UI/UX Design</option>
+<option value="dev">Digital Development</option>
+<option value="consulting">Design Consulting</option>
+</select>
+</div>
+<!-- Budget Range -->
+<div class="relative">
+<label class="text-[11px] font-bold tracking-[0.1em] text-outline uppercase block mb-2" for="budget">Budget Range</label>
+<select class="w-full bg-transparent border-0 border-b border-[#1E2030]/15 py-4 px-0 text-primary-container font-medium focus:ring-0 input-focus-border transition-all appearance-none cursor-pointer" id="budget" name="budget">
+<option disabled="" selected="" value="">Select range</option>
+<option value="small">$10k – $25k</option>
+<option value="mid">$25k – $50k</option>
+<option value="large">$50k – $100k</option>
+<option value="custom">$100k+</option>
+</select>
+</div>
+</div>
+<!-- Message Field -->
+<div class="relative">
+<label class="text-[11px] font-bold tracking-[0.1em] text-outline uppercase block mb-2" for="message">Message</label>
+<textarea class="w-full bg-transparent border-0 border-b border-[#1E2030]/15 py-4 px-0 text-primary-container font-medium placeholder:text-outline-variant focus:ring-0 input-focus-border transition-all resize-none" id="message" name="message" placeholder="Briefly describe your project goals..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-8">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-lg text-sm font-bold tracking-[0.05em] uppercase hover:bg-primary-container transition-all flex items-center gap-3" type="submit">
+                        Submit Inquiry
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] text-[#F2F1EF] full-width flat no-shadow">
+<div class="w-full pt-32 pb-16 px-8 flex flex-col items-start max-w-[1440px] mx-auto">
+<!-- Logo Wordmark from image -->
+<div class="h-16 w-80 overflow-hidden relative mb-12">
+<img alt="NUVIXES" class="absolute h-[800%] max-w-none left-[-1.5%] top-[-10%]" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ" style="clip-path: inset(1.2% 67.5% 86% 2%); filter: brightness(0) invert(1);"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 w-full">
+<div class="col-span-1 md:col-span-2">
+<p class="font-inter uppercase tracking-[0.1em] text-[11px] text-[#8A8D9F] max-w-sm mb-12">
+                    Architectural precision in digital design. We build tools and identities that stand the test of time.
+                </p>
+</div>
+<div class="space-y-4">
+<p class="font-inter uppercase tracking-[0.1em] text-[11px] font-bold">Menu</p>
+<ul class="flex flex-col gap-3 font-inter uppercase tracking-[0.1em] text-[11px]">
+<li><a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Archive</a></li>
+<li><a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Services</a></li>
+<li><a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Journal</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="font-inter uppercase tracking-[0.1em] text-[11px] font-bold">Social</p>
+<ul class="flex flex-col gap-3 font-inter uppercase tracking-[0.1em] text-[11px]">
+<li><a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Instagram</a></li>
+<li><a class="text-[#8A8D9F] hover:text-[#F2F1EF] transition-colors duration-300" href="#">Linkedin</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-24 pt-12 border-t border-[#F2F1EF]/10 w-full">
+<p class="font-inter uppercase tracking-[0.1em] text-[11px] text-[#8A8D9F]">© 2024 NUVIXES STUDIO. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+</body></html>

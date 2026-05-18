@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Neue_Montreal';
+            src: url('https://fonts.cdnfonts.com/css/neue-montreal');
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F1EF;
+            color: #1E2030;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .monolith-text {
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#151938",
+                        "secondary-fixed": "#dfe0ff",
+                        "surface-dim": "#dbdad8",
+                        "surface-container-low": "#f4f3f1",
+                        "secondary-fixed-dim": "#c1c4ec",
+                        "primary-container": "#1e2030",
+                        "surface-container-highest": "#e3e2e0",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#dfe1f5",
+                        "on-background": "#1a1c1b",
+                        "on-surface": "#1a1c1b",
+                        "surface-variant": "#e3e2e0",
+                        "on-secondary-fixed-variant": "#404466",
+                        "on-primary-container": "#86879b",
+                        "surface-container-high": "#e9e8e6",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#575b7e",
+                        "primary": "#070918",
+                        "primary-fixed": "#e1e1f7",
+                        "surface": "#faf9f7",
+                        "on-tertiary-container": "#85889a",
+                        "on-primary-fixed-variant": "#444657",
+                        "outline-variant": "#c7c5cd",
+                        "secondary-container": "#d1d4fd",
+                        "inverse-on-surface": "#f2f1ef",
+                        "tertiary": "#070a18",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c4c5da",
+                        "outline": "#77767d",
+                        "primary-fixed-dim": "#c4c5da",
+                        "on-tertiary-fixed": "#171b29",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#434656",
+                        "on-primary-fixed": "#181a2a",
+                        "background": "#faf9f7",
+                        "surface-tint": "#5c5d70",
+                        "on-surface-variant": "#46464c",
+                        "tertiary-container": "#1d212f",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#faf9f7",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3130",
+                        "surface-container": "#efeeec",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#c3c5d9",
+                        "secondary": "#585c7f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "inter": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary">
+<!-- TopAppBar -->
+<header class="bg-[#F2F1EF] dark:bg-[#1E2030] text-[#1E2030] dark:text-[#F2F1EF] font-inter tracking-[-0.02em] font-medium docked full-width top-0 z-50 tonal-shift-bg no-border flat no-shadow sticky">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-12">
+<span class="material-symbols-outlined text-2xl cursor-pointer hover:opacity-70 transition-opacity duration-300">menu</span>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Work</a>
+<a class="text-[#1E2030] dark:text-[#F2F1EF] border-b-2 border-[#1E2030] dark:border-[#F2F1EF] uppercase tracking-[0.1em] text-[11px]" href="#">About</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">Journal</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Nuvixes Logo" class="h-6 w-auto block dark:hidden" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ"/>
+<img alt="Nuvixes Logo" class="h-6 w-auto hidden dark:block invert" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ"/>
+<span class="text-xl font-bold tracking-tighter text-[#1E2030] dark:text-[#F2F1EF]">NUVIXES</span>
+</div>
+<div>
+<a class="text-[#1E2030] dark:text-[#F2F1EF] text-[11px] font-bold uppercase tracking-[0.1em] border border-[#1E2030] dark:border-[#F2F1EF] px-6 py-2.5 hover:bg-[#1E2030] dark:hover:bg-[#F2F1EF] hover:text-white dark:hover:text-[#1E2030] transition-all duration-300 active:scale-95" href="#">CONTACT</a>
+</div>
+</div>
+</header>
+<main>
+<!-- Intro Statement Section -->
+<section class="max-w-[1200px] mx-auto px-12 pt-32 pb-48">
+<div class="editorial-grid gap-12">
+<div class="col-span-12 md:col-span-10">
+<span class="text-[11px] font-bold tracking-[0.15em] uppercase text-on-primary-container mb-8 block">EST. 2024 / DESIGN STUDIO</span>
+<h1 class="text-6xl md:text-[5rem] monolith-text font-bold mb-16 leading-[0.9]">
+                        WE CRAFT <span class="italic font-light">ARCHIVAL</span> DIGITAL EXPERIENCES THAT DEFY THE TRANSIENT NATURE OF THE WEB.
+                    </h1>
+</div>
+<div class="col-span-12 md:col-start-7 md:col-span-5">
+<p class="text-xl text-on-surface-variant leading-relaxed font-light">
+                        Nuvixes is a boutique design consultancy specializing in high-fidelity interfaces. We believe that the loudest statement is often the quietest one.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Studio Philosophy Section (Tonal Stacking) -->
+<section class="bg-surface-container-low py-48">
+<div class="max-w-[1200px] mx-auto px-12">
+<div class="editorial-grid gap-16 items-start">
+<div class="col-span-12 md:col-span-5 h-[600px] bg-surface-container-highest relative overflow-hidden group">
+<img alt="Modern architecture detail" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpPGFj7weEoScYq2uyEQSbhhF7zYf_p5yM6W_62__7GI5Z9bOOso0ipQWxg65DHFsOlrY3h8twDUNeRtS0Tnxid4uMw58tqUg2g-9zDSb0KV4eyoDEqDceGUgv5IgsXuCCCSSmI-5nJE5_LVUKXSUlhZiR5grReY_YwJpv6PAbi4uaEQj-o3z3L3Qf200_2gWwBNj-0qR_4EVBDWjIFVMM4A5c6H5F89USccV2-FIFDthWMXspH3vZXZuiX6UwxKN-gfxTBaoCPPId"/>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<h2 class="text-3xl font-bold mb-12 tracking-tight">The Curated Monolith</h2>
+<div class="space-y-8 text-on-surface-variant leading-relaxed">
+<p class="text-lg">
+                                Our philosophy, <span class="text-primary font-medium">The Curated Monolith</span>, draws inspiration from brutalist architecture and timeless editorial typography. We reject the generic, rounded aesthetic of modern SaaS in favor of structural tension and spatial authority.
+                            </p>
+<p>
+                                Every pixel is weighed against its necessity. By utilizing intentional asymmetry and a restricted color palette of Primary Navy and Off-White, we create environments that feel like a physical gallery rather than a digital interface.
+                            </p>
+<div class="pt-8">
+<div class="w-full h-[2px] bg-primary mb-4"></div>
+<p class="text-[11px] font-bold tracking-[0.1em] uppercase">Core Philosophy 01 / Spatial Restraint</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Credibility Matters Section -->
+<section class="max-w-[1200px] mx-auto px-12 py-48">
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-8">
+<h2 class="text-4xl font-bold mb-16 tracking-tight">Design as a Trust Mechanism.</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+<div class="space-y-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-primary">Authority Through Detail</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                                Credibility is not shouted; it is felt. Through meticulous attention to micro-interactions and typographic hierarchy, we instill a sense of permanence and reliability in every brand we touch.
+                            </p>
+</div>
+<div class="space-y-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-primary">Editorial Accuracy</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                                We treat digital content with the reverence of a printed archive. Our layouts prioritize legibility and flow, ensuring that your narrative is delivered with clarity and gravitas.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Approach/Principles Section (Bento Grid) -->
+<section class="bg-surface-container py-48">
+<div class="max-w-[1200px] mx-auto px-12">
+<h2 class="text-sm font-bold uppercase tracking-[0.2em] mb-24 text-center">The Approach</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-12 flex flex-col justify-between aspect-square">
+<span class="text-3xl font-light text-outline-variant">01</span>
+<div>
+<h4 class="text-xl font-bold mb-4">Discover</h4>
+<p class="text-sm text-on-surface-variant">Uncovering the raw essence of your brand's unique identity.</p>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-12 flex flex-col justify-between aspect-square">
+<span class="text-3xl font-light opacity-30">02</span>
+<div>
+<h4 class="text-xl font-bold mb-4">Strategy</h4>
+<p class="text-sm opacity-70">Mapping a narrative that commands attention and defines position.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-12 flex flex-col justify-between aspect-square">
+<span class="text-3xl font-light text-outline-variant">03</span>
+<div>
+<h4 class="text-xl font-bold mb-4">Design</h4>
+<p class="text-sm text-on-surface-variant">Sculpting the monolith with precision and editorial intent.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-12 flex flex-col justify-between aspect-square">
+<span class="text-3xl font-light text-outline-variant">04</span>
+<div>
+<h4 class="text-xl font-bold mb-4">Build</h4>
+<p class="text-sm text-on-surface-variant">Deploying archival quality code that stands the test of time.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1200px] mx-auto px-12 py-64 text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="text-5xl font-bold mb-12 tracking-tight">Ready to build something permanent?</h2>
+<a class="inline-flex items-center group" href="#">
+<span class="text-lg font-medium border-b-2 border-primary pb-1 group-hover:pr-4 transition-all duration-300">Start a Project</span>
+<span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-2">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] text-[#F2F1EF] font-inter uppercase tracking-[0.1em] text-[11px] full-width tonal-block-elevation flat no-shadow">
+<div class="w-full pt-32 pb-16 px-8 flex flex-col items-start max-w-[1440px] mx-auto">
+<div class="text-[48px] font-bold tracking-tighter text-[#F2F1EF] leading-none mb-12">NUVIXES</div>
+<div class="flex flex-col md:flex-row justify-between w-full gap-24">
+<div class="max-w-xs normal-case tracking-normal">
+<p class="text-[#8A8D9F] text-sm leading-relaxed">
+                        A design laboratory dedicated to the pursuit of high-fidelity minimalism and digital permanence.
+                    </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+<div class="flex flex-col gap-4">
+<h5 class="text-[#8A8D9F] mb-2">Navigation</h5>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="text-[#F2F1EF] underline decoration-1" href="#">SERVICES</a>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">JOURNAL</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="text-[#8A8D9F] mb-2">Social</h5>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">INSTAGRAM</a>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">LINKEDIN</a>
+</div>
+</div>
+</div>
+<div class="w-full mt-32 pt-8 border-t border-[#F2F1EF]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[#8A8D9F]">
+<div>© 2024 NUVIXES STUDIO. ALL RIGHTS RESERVED.</div>
+<div class="flex gap-8">
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

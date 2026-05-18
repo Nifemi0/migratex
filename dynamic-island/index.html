@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic Island (stub)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="pill" id="island">
+    <div class="icon" id="icon">🔊</div>
+    <div class="badge" id="badge">0</div>
+    <div class="content" id="content">Idle</div>
+    <div class="controls" id="controls">
+      <button id="prev" class="btn">⏮️</button>
+      <button id="toggle-music" class="btn">▶️</button>
+      <button id="next" class="btn">⏭️</button>
+    </div>
+  </div>
+
+  <div class="debug">
+    <button id="notify-btn">Simulate Notification</button>
+    <button id="simulate-info">Get System Info</button>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

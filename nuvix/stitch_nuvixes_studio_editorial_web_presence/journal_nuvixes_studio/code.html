@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Journal - Nuvixes Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Neue_Montreal';
+            src: url('https://fonts.cdnfonts.com/css/neue-montreal') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Neue_Montreal', sans-serif;
+            background-color: #F2F1EF;
+            color: #1E2030;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        ::selection {
+            background-color: #1E2030;
+            color: #F2F1EF;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#181a2a",
+                    "surface-container-high": "#e9e8e6",
+                    "inverse-surface": "#2f3130",
+                    "surface-bright": "#faf9f7",
+                    "secondary-fixed-dim": "#c1c4ec",
+                    "surface": "#faf9f7",
+                    "secondary-container": "#d1d4fd",
+                    "primary": "#070918",
+                    "on-surface": "#1a1c1b",
+                    "tertiary-container": "#1d212f",
+                    "surface-container-highest": "#e3e2e0",
+                    "outline": "#77767d",
+                    "on-secondary-fixed": "#151938",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#c4c5da",
+                    "primary-container": "#1e2030",
+                    "on-secondary-container": "#575b7e",
+                    "background": "#faf9f7",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#5c5d70",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f4f3f1",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#404466",
+                    "tertiary-fixed": "#dfe1f5",
+                    "secondary-fixed": "#dfe0ff",
+                    "on-tertiary-fixed-variant": "#434656",
+                    "on-tertiary-fixed": "#171b29",
+                    "on-surface-variant": "#46464c",
+                    "on-primary-container": "#86879b",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c7c5cd",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c4c5da",
+                    "inverse-on-surface": "#f2f1ef",
+                    "surface-container": "#efeeec",
+                    "primary-fixed": "#e1e1f7",
+                    "on-primary-fixed-variant": "#444657",
+                    "secondary": "#585c7f",
+                    "tertiary": "#070a18",
+                    "tertiary-fixed-dim": "#c3c5d9",
+                    "surface-variant": "#e3e2e0",
+                    "on-tertiary-container": "#85889a",
+                    "surface-dim": "#dbdad8",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            }
+          },
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-primary-container">
+<!-- TopAppBar -->
+<header class="bg-[#F2F1EF] dark:bg-[#1E2030] docked full-width top-0 sticky z-50 tonal-shift-bg flat no shadows">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined cursor-pointer text-[#1E2030] dark:text-[#F2F1EF] hover:opacity-70 transition-opacity duration-300">menu</span>
+<a class="flex items-center gap-3 group" href="/">
+<div class="h-8 w-8 overflow-hidden">
+<img alt="Nuvixes Logo" class="h-full w-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uioVoDO2IwUfYFo-cSwYrjnIxzpQv4u-gEJhwdG4snAhKRVgsEF0o09uQ7meTnaoT4xUqrV0v3sfTZkoQadAZut_UYrE06g5M7m8FGgytBLztZdAPuTD998gqW3S2ikemZSiyfWds0ufmDnADC8UalOipZiCI7l6RVmDpuBNTZDZ5QXsRHSiifJo9_UdbuMHL9-7pL7yJnz5fYhWH36ptnBm_leMHeI3ECkD7NUL2uYHpSYj2zJ2I9Mihy_I0N2C_rnWDgWvEXJCQ"/>
+</div>
+<span class="text-xl font-bold tracking-tighter text-[#1E2030] dark:text-[#F2F1EF] font-inter uppercase">NUVIXES</span>
+</a>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">PROJECTS</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">SERVICES</a>
+<a class="text-[#1E2030] dark:text-[#F2F1EF] border-b-2 border-[#1E2030] dark:border-[#F2F1EF] uppercase tracking-[0.1em] text-[11px] font-medium" href="#">JOURNAL</a>
+<a class="text-[#8A8D9F] uppercase tracking-[0.1em] text-[11px] hover:opacity-70 transition-opacity duration-300" href="#">ABOUT</a>
+</div>
+<button class="font-inter tracking-[-0.02em] font-medium text-[11px] text-[#1E2030] dark:text-[#F2F1EF] hover:opacity-70 transition-opacity duration-300">CONTACT</button>
+</nav>
+</header>
+<main class="max-w-[1440px] mx-auto px-8 md:px-16">
+<!-- Hero Section / Featured Article -->
+<section class="mt-24 mb-36">
+<div class="grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 md:col-span-8">
+<div class="mb-12">
+<span class="text-[11px] tracking-[0.2em] uppercase text-outline mb-4 block">FEATURED / DESIGN INSIGHTS</span>
+<h1 class="text-5xl md:text-[80px] leading-[1] font-bold tracking-[-0.03em] uppercase max-w-4xl">The Currency of Trust</h1>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 pb-4">
+<p class="text-lg md:text-xl text-on-surface-variant font-medium leading-relaxed mb-8">
+                        In an era of digital saturation, credibility is the only lasting differentiator. We explore how minimalist aesthetics build long-term brand authority.
+                    </p>
+<div class="flex items-center gap-4 text-[11px] tracking-widest font-bold uppercase border-t border-outline-variant pt-6 w-fit">
+<span>Read Article</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="mt-16 w-full h-[600px] overflow-hidden bg-surface-container-low group">
+<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="Monochromatic architectural interior with high ceilings, dramatic sharp shadows, and a singular concrete column in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvo3em_auKabrlpQv1I2Dh5NLilqr8WyZhltGE0BIRfqYwiFbHcqlsOJC_i_ao_FzjIdtSRkQffBbdf6rqti8PLTn9Di11XAMrg6R8lIaz6LD8XljguxXbfTFPdsh9Ld-pxZ3HfCCSY7JKSLoIVdG1YJyA5pivi10K6NwY7uczvSEVax0Xpl5zTKm2Jvjj-MmvyNg4r9chXcYynXxjD-XDu3jTW9Bjj-BMnmz799Y_n_mqLXKekJh2lce1eGoAcE0NMRrrOi5EHQ7r"/>
+</div>
+</section>
+<!-- The Progress Track / Brutalist Separator -->
+<div class="w-full h-[2px] bg-primary mb-24"></div>
+<!-- Journal Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-x-16 mb-48">
+<!-- Secondary Post 1 -->
+<div class="md:col-span-5 md:col-start-1">
+<article class="flex flex-col gap-8">
+<div class="aspect-[4/5] bg-surface-container-low overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist desk setup with a single designer chair, a sleek metal lamp, and neutral toned walls in a studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs0mLUV15aDSWL8-KySt_xw8i_aQpu5K65nFSd58yGPq_pav1Eql1cm5VMsjngoXHC39Ls4MVVf1fu1Z1zBOqniZgE_rI-f05riyRuXxhTX9lsB2d1F16K-FafEwCYCgmIY_RPD7lZaSh4bQ-2jZUQi-sO491P6Z5_p8IBgGMw4EZ-SXSs5iAwEqwyFgP0kTKWUmVuCW4M1_aXIWIovRPN5fMKhMtZUtB35HxWwoqzcDmVVcmf65bv-RkE1Tyg8Gje32ZhNk4mdezl"/>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center text-[11px] tracking-widest text-outline uppercase font-medium">
+<span>04 NOV 2024</span>
+<span>ARCHITECTURE</span>
+</div>
+<h2 class="text-3xl font-bold uppercase tracking-tight">Architectural Minimalism in Web Design</h2>
+<p class="text-on-surface-variant leading-relaxed">Applying the principles of structural grid systems and negative space to the digital canvas.</p>
+<a class="text-[11px] font-bold tracking-[0.2em] uppercase mt-4 hover:pl-4 transition-all duration-300" href="#">View Journal</a>
+</div>
+</article>
+</div>
+<!-- Secondary Post 2 -->
+<div class="md:col-span-5 md:col-start-8 md:mt-32">
+<article class="flex flex-col gap-8">
+<div class="aspect-[4/5] bg-surface-container-low overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="Abstract view of a glass and steel skyscraper facade reflecting a clear sky with sharp geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnMaghidqnXagLx8ma_ZLZ9UuZjT9MjoOXmqcrlKwbMHIwvr6i7iMthbD2--T230p1zr2F55Xxh0osxvWB87yzoEw1YsXoAgTSmoKwc3ePMt1oL6oPM-XSQEDlug3hJdZjksrsvlEeoUCwI2R5mjatsNgn9UaHQ_oyOOGmnkbOiAoekVTrs0S0kv1MLQrPfOtJsTK03Lc3ttJ3_BOCiuvgdq5tlvLFIYgGDgYC9H5vjvSlbGvuUIU5gEWQSogf3yvk95AwfjOAa2dC"/>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center text-[11px] tracking-widest text-outline uppercase font-medium">
+<span>28 OCT 2024</span>
+<span>CREDIBILITY</span>
+</div>
+<h2 class="text-3xl font-bold uppercase tracking-tight">The Art of Archival Storytelling</h2>
+<p class="text-on-surface-variant leading-relaxed">Why historical context and project depth matter more than fleeting visual trends.</p>
+<a class="text-[11px] font-bold tracking-[0.2em] uppercase mt-4 hover:pl-4 transition-all duration-300" href="#">View Journal</a>
+</div>
+</article>
+</div>
+<!-- Secondary Post 3 -->
+<div class="md:col-span-12 mt-24 border-t border-outline-variant pt-24">
+<div class="grid grid-cols-1 md:grid-cols-12">
+<div class="md:col-span-4">
+<span class="text-[11px] tracking-[0.2em] uppercase text-outline">LATEST DISCOURSE</span>
+</div>
+<div class="md:col-span-7 md:col-start-6">
+<article class="flex flex-col gap-6">
+<span class="text-[11px] tracking-widest text-outline uppercase">15 OCT 2024 — STUDIO NEWS</span>
+<h2 class="text-4xl font-bold uppercase tracking-tight">Evolution of the Monolith: Nuvixes Year IV</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed">Reflecting on four years of brutalist digital design and the shift toward meaningful, reduced interfaces.</p>
+<div class="flex items-center gap-6 mt-4">
+<a class="text-[11px] font-bold tracking-widest uppercase py-4 px-10 bg-primary text-on-primary rounded-none" href="#">Read Full Insight</a>
+<span class="text-[11px] text-outline font-medium">8 MIN READ</span>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- Archive List -->
+<section class="bg-surface-container-low p-12 md:p-24 mb-48">
+<div class="flex flex-col gap-12">
+<div class="flex justify-between items-end border-b border-outline-variant pb-8">
+<h3 class="text-2xl font-bold uppercase tracking-tight">Archived Insights</h3>
+<span class="text-[11px] tracking-widest text-outline uppercase">2023 — 2024</span>
+</div>
+<div class="flex flex-col">
+<div class="group flex flex-col md:flex-row justify-between md:items-center py-10 border-b border-outline-variant/30 hover:bg-surface-container-high transition-colors px-4 -mx-4">
+<div class="flex items-center gap-12">
+<span class="text-[11px] text-outline w-24">SEP 2024</span>
+<h4 class="text-xl font-bold uppercase tracking-tight transition-transform group-hover:translate-x-2">Typography as Visual Anchor</h4>
+</div>
+<span class="text-[11px] text-outline uppercase tracking-widest mt-4 md:mt-0">Design Theory</span>
+</div>
+<div class="group flex flex-col md:flex-row justify-between md:items-center py-10 border-b border-outline-variant/30 hover:bg-surface-container-high transition-colors px-4 -mx-4">
+<div class="flex items-center gap-12">
+<span class="text-[11px] text-outline w-24">AUG 2024</span>
+<h4 class="text-xl font-bold uppercase tracking-tight transition-transform group-hover:translate-x-2">Restraint vs. Reduction</h4>
+</div>
+<span class="text-[11px] text-outline uppercase tracking-widest mt-4 md:mt-0">Philosophy</span>
+</div>
+<div class="group flex flex-col md:flex-row justify-between md:items-center py-10 border-b border-outline-variant/30 hover:bg-surface-container-high transition-colors px-4 -mx-4">
+<div class="flex items-center gap-12">
+<span class="text-[11px] text-outline w-24">JUL 2024</span>
+<h4 class="text-xl font-bold uppercase tracking-tight transition-transform group-hover:translate-x-2">Digital Brutalism and Longevity</h4>
+</div>
+<span class="text-[11px] text-outline uppercase tracking-widest mt-4 md:mt-0">UX Research</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] full-width tonal-block-elevation flat no shadows mt-36">
+<div class="w-full pt-32 pb-16 px-8 flex flex-col items-start max-w-[1440px] mx-auto">
+<div class="text-[48px] font-bold tracking-tighter text-[#F2F1EF] leading-none mb-12 font-inter uppercase">NUVIXES</div>
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+<div>
+<p class="max-w-sm text-[#8A8D9F] text-[15px] normal-case leading-relaxed font-['Neue_Montreal']">
+                        Developing high-end digital monoliths for brands that value permanence over trends. Our approach integrates architectural principles with digital research.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-6 md:justify-end items-start text-[#8A8D9F] font-inter uppercase tracking-[0.1em] text-[11px]">
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">ARCHIVE</a>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">SERVICES</a>
+<a class="text-[#F2F1EF] underline decoration-1" href="#">JOURNAL</a>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">INSTAGRAM</a>
+<a class="hover:text-[#F2F1EF] transition-colors duration-300" href="#">LINKEDIN</a>
+</div>
+</div>
+<div class="w-full pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-[#8A8D9F] font-inter uppercase tracking-[0.1em] text-[11px]">© 2024 NUVIXES STUDIO. ALL RIGHTS RESERVED.</span>
+<span class="text-[#F2F1EF] font-inter uppercase tracking-[0.1em] text-[11px]">STUDIO@NUVIXES.COM</span>
+</div>
+</div>
+</footer>
+</body></html>

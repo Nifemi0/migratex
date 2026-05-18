@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "primary": "#070918",
+                        "secondary-fixed": "#e1dfff",
+                        "secondary-fixed-dim": "#c1c1ff",
+                        "secondary": "#585991",
+                        "inverse-surface": "#2f3130",
+                        "tertiary-fixed": "#f2e1be",
+                        "surface-container-highest": "#e3e2e0",
+                        "on-tertiary-fixed": "#231a06",
+                        "outline-variant": "#c7c5cd",
+                        "tertiary-fixed-dim": "#d5c5a4",
+                        "on-tertiary-fixed-variant": "#51452c",
+                        "on-tertiary-container": "#958769",
+                        "on-error": "#ffffff",
+                        "surface-container": "#efeeec",
+                        "tertiary-container": "#29200a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dbdad8",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#bebefd",
+                        "on-background": "#1a1c1b",
+                        "inverse-primary": "#c4c5da",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#46464c",
+                        "on-primary-fixed": "#181a2a",
+                        "inverse-on-surface": "#f2f1ef",
+                        "surface-tint": "#5c5d70",
+                        "primary-container": "#1e2030",
+                        "background": "#faf9f7",
+                        "on-secondary-fixed-variant": "#404177",
+                        "on-primary-fixed-variant": "#444657",
+                        "tertiary": "#100900",
+                        "surface-bright": "#faf9f7",
+                        "surface-container-high": "#e9e8e6",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e1e1f7",
+                        "on-secondary-fixed": "#141449",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e3e2e0",
+                        "primary-fixed-dim": "#c4c5da",
+                        "on-surface": "#1a1c1b",
+                        "on-secondary-container": "#4a4b82",
+                        "surface": "#faf9f7",
+                        "outline": "#77767d",
+                        "on-primary-container": "#86879b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-text { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<nav class="fixed top-0 z-50 w-full bg-[#F2F1EF]/70 dark:bg-[#1E2030]/70 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-12 py-6 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="architecture">architecture</span>
+<span class="text-xl font-bold tracking-[0.15em] text-[#1E2030] dark:text-white uppercase">RESONANCE</span>
+</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="font-manrope tracking-[0.05em] uppercase font-medium text-xs text-[#424379] dark:text-slate-400 opacity-80 hover:opacity-100 hover:text-[#1E2030] transition-all duration-300" href="#">The Work</a>
+<a class="font-manrope tracking-[0.05em] uppercase font-medium text-xs text-[#424379] dark:text-slate-400 opacity-80 hover:opacity-100 hover:text-[#1E2030] transition-all duration-300" href="#">Services</a>
+<a class="font-manrope tracking-[0.05em] uppercase font-medium text-xs text-[#424379] dark:text-slate-400 opacity-80 hover:opacity-100 hover:text-[#1E2030] transition-all duration-300" href="#">Journal</a>
+<a class="font-manrope tracking-[0.05em] uppercase font-medium text-xs text-[#1E2030] dark:text-white border-b-2 border-[#1E2030] dark:border-white pb-1" href="#">Contact</a>
+</div>
+<button class="md:hidden material-symbols-outlined" data-icon="menu">menu</button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-[1920px] mx-auto min-h-screen">
+<!-- Hero Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
+<div class="md:col-span-8">
+<p class="uppercase tracking-[0.3em] text-[10px] font-semibold text-secondary mb-6">Inquiry Portal</p>
+<h1 class="text-5xl md:text-8xl font-medium tracking-tight text-primary leading-[1.1]">
+                    Start a <span class="block italic text-secondary">Conversation.</span>
+</h1>
+</div>
+<div class="md:col-span-4 flex items-end">
+<p class="text-on-surface-variant leading-relaxed text-lg max-w-sm">
+                    We translate complex visions into monolithic realities. Whether architectural or digital, every project begins with a single point of resonance.
+                </p>
+</div>
+</div>
+<!-- Layout Grid: Form + Info -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+<!-- Contact Info: Tonal Layering -->
+<div class="lg:col-span-4 space-y-16">
+<div class="space-y-12">
+<!-- Studio Architecture -->
+<section class="group">
+<div class="bg-surface-container-low p-8 border-l-4 border-primary transition-all duration-500 group-hover:bg-surface-container">
+<h3 class="text-xs uppercase tracking-widest font-bold text-secondary mb-4">Studio Architecture</h3>
+<p class="text-xl font-medium text-primary mb-2">North American Hub</p>
+<p class="text-on-surface-variant mb-6 font-light">1200 Steel Avenue, Suite 400<br/>Chicago, IL 60601</p>
+<a class="text-sm font-bold border-b border-outline-variant hover:border-primary transition-colors pb-1" href="mailto:architecture@nuvixes.studio">architecture@nuvixes.studio</a>
+</div>
+</section>
+<!-- Studio Intelligence -->
+<section class="group">
+<div class="bg-surface-container-low p-8 border-l-4 border-secondary transition-all duration-500 group-hover:bg-surface-container">
+<h3 class="text-xs uppercase tracking-widest font-bold text-secondary mb-4">Studio Intelligence</h3>
+<p class="text-xl font-medium text-primary mb-2">Digital Systems Lab</p>
+<p class="text-on-surface-variant mb-6 font-light">Eisenzahnstraße 22<br/>10709 Berlin, Germany</p>
+<a class="text-sm font-bold border-b border-outline-variant hover:border-primary transition-colors pb-1" href="mailto:intelligence@nuvixes.studio">intelligence@nuvixes.studio</a>
+</div>
+</section>
+</div>
+<div class="relative aspect-square w-full grayscale hover:grayscale-0 transition-all duration-1000 bg-surface-container">
+<img alt="Studio Office" class="object-cover w-full h-full" data-alt="Interior of a minimalist brutalist office with concrete walls large windows and industrial lighting at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHZPlx_tK8hfIyM50u1OKcSX2xvZV9EHrTj04VL2nQxF9fGtsMU0dtAIgt5xg8eiMPAm59fc4_Fva66h7-jDwubN3vNsJvq8j2bQ87va9bGieLqP3N_ociT3H3gsN1M5euECV5trCc4kLNgfDR9sLmBCUCy-ahOHSRS3QUttcB2duRJ-NJJOX9ESOWSIXMMuPW0L9ImxCNRcIKbwAUBRR67QwP3J1HE64hvFDSqPHYolytY50hddlxubYp_QEzag9dDQ9bViY-Q6rV"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+</div>
+<!-- Inquiry Form: Editorial Style -->
+<div class="lg:col-span-8 bg-surface-container-lowest p-8 md:p-16">
+<form class="space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Identification -->
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest font-bold text-secondary mb-2">Identification</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary placeholder:text-outline-variant transition-all py-4 font-manrope text-xl" placeholder="Full Name or Entity" type="text"/>
+</div>
+<!-- Correspondence -->
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest font-bold text-secondary mb-2">Correspondence</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary placeholder:text-outline-variant transition-all py-4 font-manrope text-xl" placeholder="Email Address" type="email"/>
+</div>
+</div>
+<!-- Intent Selector -->
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold text-secondary mb-6">Intent</label>
+<div class="flex flex-wrap gap-4">
+<label class="cursor-pointer">
+<input checked="" class="hidden peer" name="intent" type="radio"/>
+<span class="px-8 py-3 border-2 border-outline-variant peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all text-sm uppercase tracking-widest font-medium">Architecture</span>
+</label>
+<label class="cursor-pointer">
+<input class="hidden peer" name="intent" type="radio"/>
+<span class="px-8 py-3 border-2 border-outline-variant peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all text-sm uppercase tracking-widest font-medium">Intelligence</span>
+</label>
+<label class="cursor-pointer">
+<input class="hidden peer" name="intent" type="radio"/>
+<span class="px-8 py-3 border-2 border-outline-variant peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary transition-all text-sm uppercase tracking-widest font-medium">Other</span>
+</label>
+</div>
+</div>
+<!-- Dialogue -->
+<div class="relative group">
+<label class="block text-[10px] uppercase tracking-widest font-bold text-secondary mb-2">Dialogue</label>
+<textarea class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary placeholder:text-outline-variant transition-all py-4 font-manrope text-xl resize-none" placeholder="Brief outline of your vision..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-8">
+<button class="group relative inline-flex items-center gap-6 bg-primary text-white px-12 py-6 overflow-hidden transition-all active:scale-95" type="submit">
+<span class="relative z-10 uppercase tracking-[0.2em] font-bold text-sm">Initiate Dialogue</span>
+<span class="material-symbols-outlined relative z-10 transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
+<div class="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Global Map Aesthetic -->
+<div class="mt-48 relative w-full h-[500px] overflow-hidden bg-surface-container-highest">
+<div class="absolute inset-0 grayscale opacity-40">
+<div class="w-full h-full" data-location="Chicago" style=""></div>
+<!-- Simulated architectural map overlay -->
+<div class="absolute inset-0 bg-[radial-gradient(circle,transparent_20%,#1e2030_150%)]"></div>
+<div class="absolute top-1/2 left-1/4 w-3 h-3 bg-primary animate-pulse"></div>
+<div class="absolute top-1/3 left-2/3 w-3 h-3 bg-secondary animate-pulse"></div>
+</div>
+<div class="absolute bottom-12 left-12">
+<p class="font-manrope text-6xl font-black text-primary/10 tracking-tighter uppercase leading-none">NUVIXES<br/>STUDIO</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1E2030] dark:bg-[#070918] w-full px-12 py-24 flex flex-col md:flex-row justify-between items-end gap-12 font-manrope">
+<div class="flex flex-col items-start w-full md:w-auto">
+<span class="text-2xl font-black text-white mb-8 block tracking-widest">RESONANCE</span>
+<p class="text-[#F2F1EF] uppercase tracking-widest text-[10px] opacity-60">© 2024 RESONANCE STUDIO. BUILT ON ARCHITECTURAL INTEGRITY.</p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-4 justify-end">
+<a class="text-[#424379] uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors duration-500" href="#">The Work</a>
+<a class="text-[#424379] uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors duration-500" href="#">Services</a>
+<a class="text-[#424379] uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors duration-500" href="#">Journal</a>
+<a class="text-[#424379] uppercase tracking-widest text-[10px] md:text-xs hover:text-white transition-colors duration-500" href="#">Studio</a>
+<a class="text-white font-bold uppercase tracking-widest text-[10px] md:text-xs" href="#">Contact</a>
+</div>
+</footer>
+</body></html>
